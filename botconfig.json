@@ -4,7 +4,7 @@
     "prefix":":p ",
     "token":"https://youtu.be/dQw4w9WgXcQ",
     "elfoglaltsag":{
-        "elfoglaltsag":":p help",
+        "elfoglaltsag":"pref help",
         "type":"WATCHING",
         "_comment":"PLAYING,LISTENING,STREAMING,COMPETING,WATCHING"
     },

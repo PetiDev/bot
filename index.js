@@ -10,7 +10,8 @@ const tkn = require('./tkn.json');
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
-    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag, { type: botconfig.elfoglaltsag.type });
+    let prefix = botconfig.prefix;
+    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref/g,prefix), { type: botconfig.elfoglaltsag.type });
 });
 bot.on("message", async (message) => {
     if (message.author.bot) return;
