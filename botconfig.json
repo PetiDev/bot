@@ -11,10 +11,10 @@
     "help":{
         "pref-help":" Ez a lista",
         "pref-ping":" Teszt command",
-        "pref-calc":" Kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "pref-calc":" Kiszámolja amit beleírsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "pref-howgay":" Howgay <@ember>",
         "pref-8-ball":" 8-ball x,y,z | random sorsolás",
-        "pref-idő":" Kiírja a időt",
+        "pref-idő":" Kiírja az időt",
         "pref-meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
         "pref-server_info":"Kiírja a szerver információit",
         "pref-info":"Kiírja a bot infóit",
