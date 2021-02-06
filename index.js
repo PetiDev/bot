@@ -11,7 +11,7 @@ const tkn = require('./tkn.json');
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     let prefix = botconfig.prefix;
-    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref/g,prefix), { type: botconfig.elfoglaltsag.type });
+    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g,prefix), { type: botconfig.elfoglaltsag.type });
 });
 bot.on("message", async (message) => {
     if (message.author.bot) return;
@@ -19,8 +19,8 @@ bot.on("message", async (message) => {
     const mctlc = message.content.toLowerCase();
     //help
     if (mctlc.startsWith(prefix + 'help')) {
-        let x = JSON.stringify(botconfig.help, null, 1).replace('{', '').replace('}', '').replace(/"pref/g, prefix).replace(/"/g, '');
-        let xx = JSON.stringify(botconfig.ahelp, null, 1).replace('{', '').replace('}', '').replace(/"pref/g, prefix).replace(/"/g, '');
+        let x = JSON.stringify(botconfig.help, null, 1).replace('{', '').replace('}', '').replace(/pref-/g, prefix).replace(/"/g, '');
+        let xx = JSON.stringify(botconfig.ahelp, null, 1).replace('{', '').replace('}', '').replace(/pref-/g, prefix).replace(/"/g, '');
         if (message.author.id == botconfig.creatorid) {
             const ahlep = new Discord.MessageEmbed()
                 .setTitle("Help")
@@ -83,7 +83,7 @@ bot.on("message", async (message) => {
         } catch (erro) {
             const gay = new Discord.MessageEmbed()
                 .setTitle("Howgay")
-                .addField("Error: ", `${botconfig.error.howgay.replace(/pref/g,prefix)}`)
+                .addField("Error: ", `${botconfig.error.howgay.replace(/pref-/g,prefix)}`)
                 .setTimestamp(Date.now())
                 .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
