@@ -63,7 +63,6 @@ bot.on("message", async (message) => {
                 .setColor("RANDOM");
             message.channel.send(calce);
         } catch (err) {
-            console.error("Calc Error: \n" + err + "\n -------------")
             const calce = new Discord.MessageEmbed()
                 .setTitle("Eredmény: " + botconfig.error.hiba)
                 .addField("Számolás: Hiba", `${botconfig.error.calc}`)
@@ -143,7 +142,7 @@ bot.on("message", async (message) => {
                 .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
             message.channel.send(ido);
-        } catch (err) { console.log(err); }
+        } catch (err) { console.log("Idő lekérési hiba: \n" + err); }
     }
     //stop
     if (mctlc.startsWith(prefix + 'stop')) {
@@ -175,7 +174,6 @@ bot.on("message", async (message) => {
 
         if (message.author.id == "336233673911173120" || message.author.id == botconfig.creatorid) {
             let me = message.content.replace(prefix, '').replace("bc ", '').replace(message.mentions.channels.array()[0], '');
-            console.log(me);
             let csat = message.mentions.channels.array()[0].name;
             const channel = message.guild.channels.cache.find(ch => ch.name === csat);
             if (!channel) return;
@@ -226,7 +224,7 @@ bot.on("message", async (message) => {
             .setThumbnail(bot.user.avatarURL())
             .addField("Név:", `${bot.user.username}`)
             .addField("Ramhasználat:", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(3)}Mb/${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(3)}Mb`)
-            .addField("Ennyi szerón van bent: ", `${bot.guilds.cache.size}`)
+            .addField("Ennyi szerveren van bent: ", `${bot.guilds.cache.size}`)
             .addField("Bot létrehozva:", `${bot.user.createdAt}`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
@@ -258,13 +256,13 @@ bot.on("message", async (message) => {
                 .setDescription("")
             msg.edit(memee)
         }).catch(e => {
-            console.log(e);
+            console.log("Meme hiba: \n" + e);
         });
     }
 
 });
 bot.on("guildMemberAdd", (member) => {
-    console.log(member.user.username + " belépett");
+    
     const join = new Discord.MessageEmbed()
         .setTitle("Üdv itt")
         .addField(member)
