@@ -15,6 +15,7 @@
         "pref-howgay":" Howgay <@ember>",
         "pref-8-ball":" 8-ball x,y,z | random sorsolás",
         "pref-idő":" Kiírja az időt",
+        "pref-szavazás":"szavazás (pref-szavazás <szöveeg>)",
         "pref-meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
         "pref-server_info":"Kiírja a szerver információit",
         "pref-info":"Kiírja a bot infóit",

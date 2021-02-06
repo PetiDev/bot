@@ -258,6 +258,24 @@ bot.on("message", async (message) => {
             console.log("Meme hiba: \n" + e);
         });
     }
+    //szavazás
+    if (mctlc.startsWith(prefix + 'szavazás')) {
+        let vote = message.content.replace(prefix,'').replace('szavazás','');
+
+        const votembed = new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle("Szavazás:")
+            .addField(vote, `By: ${message.author.username}`)
+            .setTimestamp(Date.now())
+            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            
+        message.channel.send(votembed)
+        .then(function (message) {
+           message.react("✔")
+           message.react("❌")
+          });
+        
+    }
 
 });
 bot.on("guildMemberAdd", (member) => {
