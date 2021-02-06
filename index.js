@@ -236,7 +236,6 @@ bot.on("message", async (message) => {
             return arr[Math.floor(Math.random() * arr.length)];
         }
         const reddits = ['dankmemes', 'programmerHumor', 'holdup', 'cursedcomments']
-
         const memee = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setAuthor(bot.user.username,bot.user.avatarURL())
