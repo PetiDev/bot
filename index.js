@@ -149,12 +149,13 @@ bot.on("message", async (message) => {
     if (mctlc.startsWith(prefix + 'stop')) {
 
         if (message.author.id == botconfig.creatorid) {
-            const Stopped = new Discord.MessageEmbed()
-                .setTitle("Sikeresen leállítva " + message.author.username + " által")
+            const stopped = new Discord.MessageEmbed()
+                .setTitle("Leállítás...")
+                .addField("Sikeresen leállítva ", `${message.author.username} által`)
                 .setTimestamp(Date.now())
-                .setFooter("Lefuttatta: ", `${message.author.username}#${message.author.discriminator}`)
-                .setColor("RANDOM");
-            message.channel.send(Stopped);
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+                .setColor("#FF0000")
+            message.channel.send(stopped);
             setTimeout(stop, 1000);
             function stop() {
                 console.log("Leállítva " + message.author.username + " által");
