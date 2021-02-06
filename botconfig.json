@@ -8,22 +8,21 @@
         "type":"WATCHING",
         "_comment":"PLAYING,LISTENING,STREAMING,COMPETING,WATCHING"
     },
-
     "help":{
-        "pref-help":" ez a lista",
-        "pref-ping":" teszt command",
-        "pref-calc":" kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
-        "pref-howgay":" howgay <@ember>",
+        "pref-help":" Ez a lista",
+        "pref-ping":" Teszt command",
+        "pref-calc":" Kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "pref-howgay":" Howgay <@ember>",
         "pref-8-ball":" 8-ball x,y,z | random sorsolás",
-        "pref-idő":" ki irja a időt",
-        "pref-meme":"Meme innen:(dankmemes, programmerHumor, holdup, cursedcomments)",
-        "pref-server_info":"Ki irja  a szerver információit",
-        "pref-info":"Ki irja a bot infóit",
+        "pref-idő":" Kiírja a időt",
+        "pref-meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
+        "pref-server_info":"Kiírja  a szerver információit",
+        "pref-info":"Kiírja a bot infóit",
         "pref-bot_info":"Infók a botról"
     },
     "ahelp":{
         "pref-stop":"Leállítja a botot",
-        "pref-bc":"Kiirja a bot amit beirsz(#channel <üzenet>)"
+        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)"
     },
     "error":{
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
