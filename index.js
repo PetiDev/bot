@@ -155,7 +155,7 @@ bot.on("message", async (message) => {
                 .setFooter("Lefuttatta: ", `${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
             message.channel.send(Stopped);
-            setTimeout(stop, 100);
+            setTimeout(stop, 1000);
             function stop() {
                 console.log("Leállítva " + message.author.username + " által");
                 process.exit(0);
