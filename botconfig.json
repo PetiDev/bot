@@ -10,22 +10,22 @@
     },
 
     "help":{
-        ":p help":" ez a lista",
-        ":p ping":" teszt command",
-        ":p calc":" kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
-        ":p howgay":" howgay <@ember>",
-        ":p 8-ball":" 8-ball x,y,z | random sorsolás",
-        ":p idő":" ki irja a időt",
-        ":p server_info":"Ki irja  a szerver információit",
-        ":p info":"Ki irja a bot infóit",
-        ":p bot_info":"Infók a botról"
+        "prefhelp":" ez a lista",
+        "prefping":" teszt command",
+        "prefcalc":" kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "prefhowgay":" howgay <@ember>",
+        "pref8-ball":" 8-ball x,y,z | random sorsolás",
+        "prefidő":" ki irja a időt",
+        "prefserver_info":"Ki irja  a szerver információit",
+        "prefinfo":"Ki irja a bot infóit",
+        "prefbot_info":"Infók a botról"
     },
     "ahelp":{
-        ":p stop":"Leállítja a botot",
-        ":p bc":"Kiirja a bot amit beirsz(:p bc #channel <üzenet>)"
+        "prefstop":"Leállítja a botot",
+        "prefbc":"Kiirja a bot amit beirsz(#channel <üzenet>)"
     },
     "error":{
-        "howgay":" Be kell jelölnöd valvkit (:p howgay <@ember>)",
+        "howgay":" Be kell jelölnöd valvkit (prefhowgay <@ember>)",
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba"

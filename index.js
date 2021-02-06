@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({
-     disableEvryone: true ,
-     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
-    });
-    const { RedditSimple } = require("reddit-simple"); //reddit meme
+    disableEvryone: true,
+    partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
+});
+const { RedditSimple } = require("reddit-simple"); //reddit meme
 const botconfig = require('./botconfig.json');
 const tkn = require('./tkn.json');
 
@@ -16,29 +16,29 @@ bot.on("message", async (message) => {
     if (message.author.bot) return;
     let prefix = botconfig.prefix;
     const mctlc = message.content.toLowerCase();
-//help
+    //help
     if (mctlc.startsWith(prefix + 'help')) {
-        let x = JSON.stringify(botconfig.help, null, 1).replace('{', '').replace('}', '').replace(/"/g, '');
-        let xx = JSON.stringify(botconfig.ahelp, null, 1).replace('{', '').replace('}', '').replace(/"/g, '');
-        if(message.author.id == botconfig.creatorid){
+        let x = JSON.stringify(botconfig.help, null, 1).replace('{', '').replace('}', '').replace(/"pref/g, prefix).replace(/"/g, '');
+        let xx = JSON.stringify(botconfig.ahelp, null, 1).replace('{', '').replace('}', '').replace(/"pref/g, prefix).replace(/"/g, '');
+        if (message.author.id == botconfig.creatorid) {
             const ahlep = new Discord.MessageEmbed()
-            .setTitle("Help")
-            .setDescription(x + "\n Admin commandok \n" + xx, `A készítő: ${botconfig.creator}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+                .setTitle("Help")
+                .setDescription(x + "\n Admin commandok \n" + xx, `A készítő: ${botconfig.creator}`)
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+                .setColor("RANDOM");
             message.channel.send(ahlep);
-        }else{
-        const hlep = new Discord.MessageEmbed()
-            .setTitle("Help")
-            .setDescription(x, `A készítő: ${botconfig.creator}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+        } else {
+            const hlep = new Discord.MessageEmbed()
+                .setTitle("Help")
+                .setDescription(x, `A készítő: ${botconfig.creator}`)
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+                .setColor("RANDOM");
             message.channel.send(hlep);
         }
     }
-//ping
+    //ping
     if (mctlc.startsWith(prefix + 'ping')) {
         console.log("pung = " + bot.ws.ping + "ms")
         const ping = new Discord.MessageEmbed()
@@ -49,7 +49,7 @@ bot.on("message", async (message) => {
             .setColor("RANDOM");
         message.channel.send(ping);
     }
-//calc
+    //calc
     if (mctlc.startsWith(prefix + 'calc')) {
         const szam = message.content.replace(/write/g, '').replace(/process/g, '').replace(/destroy/g, '').replace(/bot/g, '').replace(/clear/g, '').replace(/kill/g, '').replace(/eval/g, '').replace(/botconfig/g, '').replace(/exit/g, '').replace(/fs/g, '').replace(/require/g, '').replace(/req/g, '').replace(prefix, '').replace(/calc/, '');
         try {
@@ -72,7 +72,7 @@ bot.on("message", async (message) => {
             message.channel.send(calce);
         }
     }
-//howgay
+    //howgay
     if (mctlc.startsWith(prefix + 'howgay')) {
         let szemelyek = message.mentions.users.first();
         let szemely;
@@ -83,7 +83,7 @@ bot.on("message", async (message) => {
         } catch (erro) {
             const gay = new Discord.MessageEmbed()
                 .setTitle("Howgay")
-                .addField("Error: ", `${botconfig.error.howgay}`)
+                .addField("Error: ", `${botconfig.error.howgay.replace(/pref/g,prefix)}`)
                 .setTimestamp(Date.now())
                 .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
@@ -108,7 +108,7 @@ bot.on("message", async (message) => {
             .setColor("RANDOM");
         message.channel.send(gay);
     }
-//8-ball
+    //8-ball
     if (mctlc.startsWith(prefix + '8-ball')) {
         try {
             let ar = message.content.replace(prefix, '').replace("8-ball", '').replace(' ', '').split(',');
@@ -131,7 +131,7 @@ bot.on("message", async (message) => {
             message.channel.send(ball);
         }
     }
-//idő
+    //idő
     if (mctlc.startsWith(prefix + 'idő')) {
 
         try {
@@ -144,7 +144,7 @@ bot.on("message", async (message) => {
             message.channel.send(ido);
         } catch (err) { console.log(err); }
     }
-//stop
+    //stop
     if (mctlc.startsWith(prefix + 'stop')) {
 
         if (message.author.id == botconfig.creatorid) {
@@ -168,7 +168,7 @@ bot.on("message", async (message) => {
             message.channel.send(NincsJD)
         }
     }
-//bc
+    //bc
     if (mctlc.startsWith(prefix + 'bc')) {
 
         if (message.author.id == "336233673911173120" || message.author.id == botconfig.creatorid) {
@@ -187,7 +187,7 @@ bot.on("message", async (message) => {
             return;
         }
     }
-//server_info
+    //server_info
     if (mctlc.startsWith(prefix + 'server_info')) {
         const serstat = new Discord.MessageEmbed()
             .setColor("RANDOM")
@@ -203,7 +203,7 @@ bot.on("message", async (message) => {
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`);
         message.channel.send(serstat);
     }
-//info
+    //info
     if (mctlc.startsWith(prefix + 'info')) {
         const stat = new Discord.MessageEmbed()
             .setColor("RANDOM")
@@ -216,7 +216,7 @@ bot.on("message", async (message) => {
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         message.channel.send(stat);
     }
-//bot_info
+    //bot_info
     if (mctlc.startsWith(prefix + 'bot_info')) {
         const botstat = new Discord.MessageEmbed()
             .setColor("RANDOM")
@@ -230,34 +230,35 @@ bot.on("message", async (message) => {
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         message.channel.send(botstat);
     }
-//redditmeme
-if (mctlc.startsWith(prefix + 'meme')) {
+    //redditmeme
+    if (mctlc.startsWith(prefix + 'meme')) {
         function randomFromArray(arr) {
-         return arr[Math.floor(Math.random()*arr.length)];
-     }
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
         const reddits = ['dankmemes', 'programmerHumor', 'holdup', 'cursedcomments']
 
         const memee = new Discord.MessageEmbed()
             .setColor("RANDOM")
+            .setAuthor(bot.user.username,bot.user.avatarURL())
             .setDescription("Keresés...")
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            const msg = await message.channel.send(memee);
-            RedditSimple.RandomPost(randomFromArray(reddits)).then( async res => {
-        const m = {
-            img: res[0].data.url,
-            title: res[0].data.title,
-            url: 'https://reddit.com' + res[0].data.permalink
-        }
-        memee.setTitle(m.title)
-            .setURL(m.url)
-            .setImage(m.img)
-            .setDescription("")
+        const msg = await message.channel.send(memee);
+        RedditSimple.RandomPost(randomFromArray(reddits)).then(async res => {
+            const m = {
+                img: res[0].data.url,
+                title: res[0].data.title,
+                url: 'https://reddit.com' + res[0].data.permalink
+            }
+            memee.setTitle(m.title)
+                .setURL(m.url)
+                .setImage(m.img)
+                .setDescription("")
             msg.edit(memee)
-    }).catch(e => {
-        console.log(e);
-    });
-}
+        }).catch(e => {
+            console.log(e);
+        });
+    }
 
 });
 bot.on("guildMemberAdd", (member) => {
