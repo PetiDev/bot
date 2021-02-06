@@ -25,7 +25,7 @@
         ":p bc":"Kiirja a bot amit beirsz(:p bc #channel <üzenet>)"
     },
     "error":{
-        "howgay":" Be kell jelölnöd valvkit (*howgay <@ember>)",
+        "howgay":" Be kell jelölnöd valvkit (:p howgay <@ember>)",
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba"
