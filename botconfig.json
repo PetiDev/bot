@@ -1,0 +1,35 @@
+{
+    "creator":"ICreeper12",
+    "creatorid":"423093436313501696",
+    "prefix":":p ",
+    "token":"https://youtu.be/dQw4w9WgXcQ",
+    "elfoglaltsag":{
+        "elfoglaltsag":":p help",
+        "type":"WATCHING",
+        "_comment":"PLAYING,LISTENING,STREAMING,COMPETING,WATCHING"
+    },
+
+    "help":{
+        ":p help":" ez a lista",
+        ":p ping":" teszt command",
+        ":p calc":" kiszámolja amit beleirsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        ":p howgay":" howgay <@ember>",
+        ":p 8-ball":" 8-ball x,y,z | random sorsolás",
+        ":p idő":" ki irja a időt",
+        ":p server_info":"Ki irja  a szerver információit",
+        ":p info":"Ki irja a bot infóit",
+        ":p bot_info":"Infók a botról"
+    },
+    "ahelp":{
+        ":p stop":"Leállítja a botot",
+        ":p bc":"Kiirja a bot amit beirsz(:p bc #channel <üzenet>)"
+    },
+    "error":{
+        "howgay":" Be kell jelölnöd valvkit (*howgay <@ember>)",
+        "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "nball":" adj meg lehetőségeket vesszővel elválasztva",
+        "hiba":"hiba"
+    }
+
+
+}
