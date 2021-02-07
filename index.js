@@ -93,7 +93,7 @@ bot.on("message", async (message) => {
         if (szemelyek.id == botconfig.creatorid) {
             var szama = 0;
         } else {
-            if (message.author.username == szemely) {
+            if (message.author.id == szemelyek.id) {
                 var szama = Math.floor(Math.random() * 50);
             } else {
                 var szama = Math.floor(Math.random() * 100);
