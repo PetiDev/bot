@@ -5,10 +5,7 @@ const bot = new Discord.Client({
 });
 const { RedditSimple } = require("reddit-simple"); //reddit meme
 const botconfig = require('./botconfig.json');
-const dotenv = require('dotenv');
-dotenv.config({
-    path: './.env'
-})
+
 
 
 bot.on("ready", async () => {
