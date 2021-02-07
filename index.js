@@ -94,10 +94,9 @@ bot.on("message", async (message) => {
             var szama = 0;
         } else {
             if (message.author.username == szemely) {
-                var szama = Math.floor(Math.random() * 51);
-
+                var szama = Math.floor(Math.random() * 50);
             } else {
-                var szama = Math.floor(Math.random() * 101);
+                var szama = Math.floor(Math.random() * 100);
             }
         }
         const gay = new Discord.MessageEmbed()
