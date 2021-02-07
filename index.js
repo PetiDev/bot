@@ -90,7 +90,7 @@ bot.on("message", async (message) => {
             message.channel.send(gay);
             return;
         }
-        if (küldő.id == botconfig.creatorid) {
+        if (szemelyek.id == botconfig.creatorid) {
             var szama = 0;
         } else {
             if (message.author.username == szemely) {
@@ -261,20 +261,51 @@ bot.on("message", async (message) => {
     //szavazás
     if (mctlc.startsWith(prefix + 'szavazás')) {
         let vote = message.content.replace(prefix,'').replace('szavazás','');
-
+        try{
+            
         const votembed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setTitle("Szavazás:")
             .addField(vote, `By: ${message.author.username}`)
             .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            
+            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)      
         message.channel.send(votembed)
         .then(function (message) {
-           message.react("✔")
-           message.react("❌")
-          }); 
+            message.react("✔")
+            message.react("❌")
+           }); 
+    }catch(err){
+        const votembedE =new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle("Szavazás:")
+            .addField(botconfig.error.vote,`To: ${message.author.username}`)
+            .setTimestamp(Date.now())
+            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            message.channel.send(votembedE)
+        }
         
+        
+    }
+    //coin
+    if (mctlc.startsWith(prefix + 'coin')) {
+        let tip = message.content.replace(prefix,'').replace('coin ','');
+        if(tip == "coin")tip = "Nem adtál meg semmit";
+        let ek = Math.floor(Math.random() * 2 + 1);
+        let coin;
+        let wol = "Vesztettél";
+        if(ek>1) coin = "fej";
+        if(ek<2) coin = "írás";
+        if(tip == coin){
+            wol = "Nyertél";
+        }
+        const coinf =new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle(wol)
+            .addField("Eredmény:",`${coin}`)
+            .addField("A Tipped:",`${tip}`)
+            .setTimestamp(Date.now())
+            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            message.channel.send(coinf);
     }
 
 });

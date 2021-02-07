@@ -16,9 +16,10 @@
         "pref-8-ball":" 8-ball x,y,z | random sorsolás",
         "pref-idő":" Kiírja az időt",
         "pref-szavazás":"szavazás (pref-szavazás <szöveeg>)",
+        "pref-coin":"Dobj fel egy érmét és fogadj rá (pref-coin <fej/írás>)",
         "pref-meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
         "pref-server_info":"Kiírja a szerver információit",
-        "pref-info":"Kiírja a bot infóit",
+        "pref-info":"Kiírja a beíró információit",
         "pref-bot_info":"Infók a botról"
     },
     "ahelp":{
@@ -29,7 +30,8 @@
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
-        "hiba":"hiba"
+        "hiba":"hiba",
+        "vote":"Írj valamit amit meg kell szavazni"
     }
 
 
