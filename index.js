@@ -5,7 +5,10 @@ const bot = new Discord.Client({
 });
 const { RedditSimple } = require("reddit-simple"); //reddit meme
 const botconfig = require('./botconfig.json');
-const tkn = require('./tkn.json');
+const dotenv = require('dotenv');
+dotenv.config({
+    path: './.env'
+})
 
 
 bot.on("ready", async () => {
@@ -288,4 +291,4 @@ bot.on("guildMemberAdd", (member) => {
     const channel = bot.channels.cache.find(ch => ch.name === 'üdvözlő');
     channel.send(join);
 });
-bot.login(tkn.token);
+bot.login(process.env.TOKEN);
