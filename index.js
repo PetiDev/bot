@@ -273,7 +273,7 @@ bot.on("message", async (message) => {
         .then(function (message) {
            message.react("✔")
            message.react("❌")
-          });
+          }); 
         
     }
 

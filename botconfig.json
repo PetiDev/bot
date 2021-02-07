@@ -23,7 +23,7 @@
     },
     "ahelp":{
         "pref-stop":"Leállítja a botot",
-        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)"
+        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)" 
     },
     "error":{
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
