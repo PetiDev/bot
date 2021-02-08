@@ -309,7 +309,7 @@ bot.on("message", async (message) => {
     //love
     if (mctlc.startsWith(prefix + 'love')){
         let parok = message.content.replace(prefix,'').replace('love ','').split(' ');
-        if(parok = [ 'love' ]){
+        if(parok = 'love'){
             const lovembedhiba = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle("Szerelem?")
