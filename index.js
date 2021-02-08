@@ -25,25 +25,20 @@ bot.on("message", async (message) => {
     const mctlc = message.content.toLowerCase();
     //help
     if (mctlc.startsWith(prefix + 'help')) {
-        let x = JSON.stringify(botconfig.help, null, 1).replace('{', '').replace('}', '').replace(/pref-/g, prefix).replace(/"/g, '');
-        let xx = JSON.stringify(botconfig.ahelp, null, 1).replace('{', '').replace('}', '').replace(/pref-/g, prefix).replace(/"/g, '');
+        const hrlp = new Discord.MessageEmbed()
+        .setTitle("Help")
+        .setTimestamp(Date.now())
+        .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+        .setColor("RANDOM");
+        Object.entries(botconfig.help).forEach((key,value) => {
+            hrlp.addField(prefix + key[0], key[1].replace(/pref-/g,prefix));
+            })
         if (message.author.id == botconfig.creatorid) {
-            const ahlep = new Discord.MessageEmbed()
-                .setTitle("Help")
-                .setDescription(x + "\n Admin commandok \n" + xx, `A készítő: ${botconfig.creator}`)
-                .setTimestamp(Date.now())
-                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-                .setColor("RANDOM");
-            message.channel.send(ahlep);
-        } else {
-            const hlep = new Discord.MessageEmbed()
-                .setTitle("Help")
-                .setDescription(x, `A készítő: ${botconfig.creator}`)
-                .setTimestamp(Date.now())
-                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-                .setColor("RANDOM");
-            message.channel.send(hlep);
-        }
+            hrlp.addField("\n __**Admin help**__ \n",`${botconfig.ahelp.lisdef}`);
+            Object.entries(botconfig.ahelp).forEach((key,value) => {
+                hrlp.addField(prefix + key[0], key[1].replace(/pref-/g,prefix));
+                }) } else {}
+        message.channel.send(hrlp);
     }
     //ping
     if (mctlc.startsWith(prefix + 'ping')) {
@@ -325,10 +320,10 @@ bot.on("message", async (message) => {
         }
         let lovmeter = Math.floor(Math.random() * 100);
         let sziv;
-        if (lovmeter < 20) sziv = "💔";
-        if (lovmeter > 20 && lovmeter < 50) sziv = "❤";
-        if (lovmeter > 50 && lovmeter <75) sziv = "💖";
-        if (lovmeter > 75) sziv = "💘";
+        if (lovmeter <= 20) sziv = "💔";
+        if (lovmeter >= 20 && lovmeter <= 50) sziv = "❤";
+        if (lovmeter >= 50 && lovmeter <= 75) sziv = "💖";
+        if (lovmeter >= 75) sziv = "💘";
         const lovembed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setTitle("Szerelem?")
