@@ -78,7 +78,7 @@ bot.on("message", async (message) => {
         let szemelyek = message.mentions.users.first();
         let szemely;
         let küldő = message.author;
-        var szama = 0;
+        let szama = 0;
         try {
             szemely = szemelyek.username;
         } catch (erro) {
@@ -92,12 +92,12 @@ bot.on("message", async (message) => {
             return;
         }
         if (szemelyek.id == botconfig.creatorid) {
-            var szama = 0;
+            szama = Math.floor(Math.random() * 25);
         } else {
             if (message.author.id == szemelyek.id) {
-                var szama = Math.floor(Math.random() * 50);
+                szama = Math.floor(Math.random() * 50);
             } else {
-                var szama = Math.floor(Math.random() * 100);
+                szama = Math.floor(Math.random() * 100);
             }
         }
         const gay = new Discord.MessageEmbed()
@@ -106,6 +106,7 @@ bot.on("message", async (message) => {
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor("RANDOM");
+            if(szama >= 50)gay.setColor("#ff9ff3");
         message.channel.send(gay);
     }
     //8-ball
