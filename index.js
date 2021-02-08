@@ -309,7 +309,7 @@ bot.on("message", async (message) => {
     //love
     if (mctlc.startsWith(prefix + 'love')){
         let parok = message.content.replace(prefix,'').replace('love ','').split(' ');
-        if(parok = 'love'){
+        if(parok == 'love'){
             const lovembedhiba = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle("Szerelem?")
@@ -317,9 +317,7 @@ bot.on("message", async (message) => {
         message.channel.send(lovembedhiba);
         return;
         }
-        console.log(parok);
         let lovmeter = Math.floor(Math.random() * 100);
-        console.log(lovmeter);
         let sziv;
         if (lovmeter < 20)sziv = "💔";
         if (lovmeter > 20 && lovmeter < 50)sziv = "❤";
