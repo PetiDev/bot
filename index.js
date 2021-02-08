@@ -343,7 +343,15 @@ bot.on("message", async (message) => {
                     .setDescription(`${botconfig.error.dm.replace(/pref-/g, prefix)}`)
 
                 message.channel.send(dmHiba);
+                return;
             }
+            const MsgSent = new Discord.MessageEmbed()
+                .setTitle("Üzenet elküldve")
+                .setDescription(`${ember}-nek/nak`)
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+                .setColor("RANDOM");
+            message.channel.send(MsgSent);
         } else {
             const DmNincsJD = new Discord.MessageEmbed()
                 .setTitle("Nincs jogod ehez!!")
