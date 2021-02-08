@@ -306,13 +306,38 @@ bot.on("message", async (message) => {
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             message.channel.send(coinf);
     }
+    //love
+    if (mctlc.startsWith(prefix + 'love')){
+        let parok = message.content.replace(prefix,'').replace('love ','').split(' ');
+        if(parok = [ 'love' ]){
+            const lovembedhiba = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setTitle("Szerelem?")
+        .setDescription(`${botconfig.error.love}`)
+        message.channel.send(lovembedhiba);
+        return;
+        }
+        console.log(parok);
+        let lovmeter = Math.floor(Math.random() * 100);
+        console.log(lovmeter);
+        let sziv;
+        if (lovmeter < 20)sziv = "💔";
+        if (lovmeter > 20 && lovmeter < 50)sziv = "❤";
+        if (lovmeter > 50)sziv = "💖";
+        const lovembed = new Discord.MessageEmbed()
+        .setColor('RANDOM')
+        .setTitle("Szerelem?")
+        .setDescription(`${parok[0]} és ${parok[1]}`)
+        .addField(`${lovmeter}%-ban össze illenek`,`${sziv}`)
+        message.channel.send(lovembed);
+    }
 
 });
 bot.on("guildMemberAdd", (member) => {
     
     const join = new Discord.MessageEmbed()
         .setTitle("Üdv itt")
-        .addField(member)
+        .setDescription(member.username)
         .setTimestamp(Date.now())
         .setColor("RANDOM");
     const channel = bot.channels.cache.find(ch => ch.name === 'üdvözlő');

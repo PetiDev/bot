@@ -13,6 +13,7 @@
         "pref-ping":" Teszt command",
         "pref-calc":" Kiszámolja amit beleírsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "pref-howgay":" Howgay <@ember>",
+        "pref-love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "pref-8-ball":" 8-ball x,y,z | random sorsolás",
         "pref-idő":" Kiírja az időt",
         "pref-szavazás":"szavazás (pref-szavazás <szöveeg>)",
@@ -31,7 +32,8 @@
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba",
-        "vote":"Írj valamit amit meg kell szavazni"
+        "vote":"Írj valamit amit meg kell szavazni",
+        "love":"Adj meg két embert"
     }
 
 
