@@ -14,8 +14,14 @@ bot.on("ready", async () => {
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
 });
 bot.on("message", async (message) => {
+    const prefix = botconfig.prefix;
     if (message.author.bot) return;
-    let prefix = botconfig.prefix;
+    if (message.channel.type == "dm" && message.content.startsWith(prefix)) { 
+   if(message.author.id != botconfig.creatorid){ message.author.send("Nem futtathatsz parancsot dm-ben");
+    return;}else{
+}
+}
+    
     const mctlc = message.content.toLowerCase();
     //help
     if (mctlc.startsWith(prefix + 'help')) {
