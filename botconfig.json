@@ -25,7 +25,8 @@
     },
     "ahelp":{
         "pref-stop":"Leállítja a botot",
-        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)" 
+        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)",
+        "pref-dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
     },
     "error":{
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
@@ -33,7 +34,8 @@
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba",
         "vote":"Írj valamit amit meg kell szavazni",
-        "love":"Adj meg két embert"
+        "love":"Adj meg két embert",
+        "dm":"Jelölj meg valakit(pref-dm <@tag> <üzenet>)"
     }
 
 

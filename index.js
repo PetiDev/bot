@@ -11,7 +11,7 @@ const botconfig = require('./botconfig.json');
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     let prefix = botconfig.prefix;
-    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g,prefix), { type: botconfig.elfoglaltsag.type });
+    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
 });
 bot.on("message", async (message) => {
     if (message.author.bot) return;
@@ -83,7 +83,7 @@ bot.on("message", async (message) => {
         } catch (erro) {
             const gay = new Discord.MessageEmbed()
                 .setTitle("Howgay")
-                .addField("Error: ", `${botconfig.error.howgay.replace(/pref-/g,prefix)}`)
+                .addField("Error: ", `${botconfig.error.howgay.replace(/pref-/g, prefix)}`)
                 .setTimestamp(Date.now())
                 .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
@@ -165,7 +165,7 @@ bot.on("message", async (message) => {
                 .setTimestamp(Date.now())
                 .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
                 .setColor("RANDOM");
-            message.channel.send(NincsJD)
+            message.channel.send(NincsJD);
         }
     }
     //bc
@@ -237,7 +237,7 @@ bot.on("message", async (message) => {
         const reddits = ['dankmemes', 'programmerHumor', 'holdup', 'cursedcomments']
         const memee = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setAuthor(bot.user.username,bot.user.avatarURL())
+            .setAuthor(bot.user.username, bot.user.avatarURL())
             .setDescription("Keresés...")
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
@@ -259,80 +259,104 @@ bot.on("message", async (message) => {
     }
     //szavazás
     if (mctlc.startsWith(prefix + 'szavazás')) {
-        let vote = message.content.replace(prefix,'').replace('szavazás','');
-        try{
-            
-        const votembed = new Discord.MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle("Szavazás:")
-            .addField(vote, `By: ${message.author.username}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)      
-        message.channel.send(votembed)
-        .then(function (message) {
-            message.react("✔")
-            message.react("❌")
-           }); 
-    }catch(err){
-        const votembedE =new Discord.MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle("Szavazás:")
-            .addField(botconfig.error.vote,`To: ${message.author.username}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+        let vote = message.content.replace(prefix, '').replace('szavazás', '');
+        try {
+
+            const votembed = new Discord.MessageEmbed()
+                .setColor("RANDOM")
+                .setTitle("Szavazás:")
+                .addField(vote, `By: ${message.author.username}`)
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            message.channel.send(votembed)
+                .then(function (message) {
+                    message.react("✔")
+                    message.react("❌")
+                });
+        } catch (err) {
+            const votembedE = new Discord.MessageEmbed()
+                .setColor("RANDOM")
+                .setTitle("Szavazás:")
+                .addField(botconfig.error.vote, `To: ${message.author.username}`)
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             message.channel.send(votembedE)
         }
-        
-        
+
+
     }
     //coin
     if (mctlc.startsWith(prefix + 'coin')) {
-        let tip = message.content.replace(prefix,'').replace('coin ','');
-        if(tip == "coin")tip = "Nem adtál meg semmit";
+        let tip = message.content.replace(prefix, '').replace('coin ', '');
+        if (tip == "coin") tip = "Nem adtál meg semmit";
         let ek = Math.floor(Math.random() * 2 + 1);
         let coin;
         let wol = "Vesztettél";
-        if(ek>1) coin = "fej";
-        if(ek<2) coin = "írás";
-        if(tip == coin){
+        if (ek > 1) coin = "fej";
+        if (ek < 2) coin = "írás";
+        if (tip == coin) {
             wol = "Nyertél";
         }
-        const coinf =new Discord.MessageEmbed()
+        const coinf = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setTitle(wol)
-            .addField("Eredmény:",`${coin}`)
-            .addField("A Tipped:",`${tip}`)
+            .addField("Eredmény:", `${coin}`)
+            .addField("A Tipped:", `${tip}`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            message.channel.send(coinf);
+        message.channel.send(coinf);
     }
     //love
-    if (mctlc.startsWith(prefix + 'love')){
-        let parok = message.content.replace(prefix,'').replace('love ','').split(' ');
-        if(parok == 'love'){
+    if (mctlc.startsWith(prefix + 'love')) {
+        let parok = message.content.replace(prefix, '').replace('love ', '').split(' ');
+        if (parok == 'love') {
             const lovembedhiba = new Discord.MessageEmbed()
-        .setColor('RANDOM')
-        .setTitle("Szerelem?")
-        .setDescription(`${botconfig.error.love}`)
-        message.channel.send(lovembedhiba);
-        return;
+                .setColor('RANDOM')
+                .setTitle("Szerelem?")
+                .setDescription(`${botconfig.error.love}`)
+            message.channel.send(lovembedhiba);
+            return;
         }
         let lovmeter = Math.floor(Math.random() * 100);
         let sziv;
-        if (lovmeter < 20)sziv = "💔";
-        if (lovmeter > 20 && lovmeter < 50)sziv = "❤";
-        if (lovmeter > 50)sziv = "💖";
+        if (lovmeter < 20) sziv = "💔";
+        if (lovmeter > 20 && lovmeter < 50) sziv = "❤";
+        if (lovmeter > 50) sziv = "💖";
         const lovembed = new Discord.MessageEmbed()
-        .setColor('RANDOM')
-        .setTitle("Szerelem?")
-        .setDescription(`${parok[0]} és ${parok[1]}`)
-        .addField(`${lovmeter}%-ban össze illenek`,`${sziv}`)
+            .setColor('RANDOM')
+            .setTitle("Szerelem?")
+            .setDescription(`${parok[0]} és ${parok[1]}`)
+            .addField(`${lovmeter}%-ban össze illenek`, `${sziv}`)
         message.channel.send(lovembed);
+    }
+    //dm
+    if (mctlc.startsWith(prefix + 'dm')) {
+        if (message.author.id == botconfig.creatorid) {
+            let ember = message.mentions.users.first();
+            let azm = message.content.replace(prefix, '').replace('dm ', '').split(' ');
+            let azuzi = message.content.replace(prefix, '').replace('dm ', '').replace(azm[0], '');
+            
+            try { ember.send(azuzi); } catch {
+                const dmHiba = new Discord.MessageEmbed()
+                    .setColor('RANDOM')
+                    .setTitle("DM")
+                    .setDescription(`${botconfig.error.dm.replace(/pref-/g, prefix)}`)
+
+                message.channel.send(dmHiba);
+            }
+        } else {
+            const DmNincsJD = new Discord.MessageEmbed()
+                .setTitle("Nincs jogod ehez!!")
+                .setTimestamp(Date.now())
+                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+                .setColor("RANDOM");
+            message.channel.send(DmNincsJD);
+        }
     }
 
 });
 bot.on("guildMemberAdd", (member) => {
-    
+
     const join = new Discord.MessageEmbed()
         .setTitle("Üdv itt")
         .setDescription(member.username)
