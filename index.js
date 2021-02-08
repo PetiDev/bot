@@ -327,7 +327,8 @@ bot.on("message", async (message) => {
         let sziv;
         if (lovmeter < 20) sziv = "💔";
         if (lovmeter > 20 && lovmeter < 50) sziv = "❤";
-        if (lovmeter > 50) sziv = "💖";
+        if (lovmeter > 50 && lovmeter <75) sziv = "💖";
+        if (lovmeter > 75) sziv = "💘";
         const lovembed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setTitle("Szerelem?")
