@@ -93,6 +93,7 @@ bot.on("guildMemberAdd", (member) => {
         .setTimestamp(Date.now())
         .setColor("RANDOM");
     const channel = bot.channels.cache.find(ch => ch.name === 'üdvözlő');
+    if(!join)return;
     channel.send(join);
 });
 bot.login(process.env.TOKEN);
