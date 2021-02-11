@@ -38,7 +38,8 @@
         "hiba":"hiba",
         "vote":"Írj valamit amit meg kell szavazni",
         "love":"Adj meg két embert",
-        "dm":"Jelölj meg valakit(pref-dm <@tag> <üzenet>)"
+        "dm":"Jelölj meg valakit(pref-dm <@tag> <üzenet>)",
+        "bc":"Jelölj meg egy létező csatornát (pref-bc <#csatorna> <üzenet>)"
     }
 
 
