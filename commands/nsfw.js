@@ -38,7 +38,7 @@ module.exports = {
         .then(res => res.json())
         .then(json => {
             let url = json.url;
-            if(!(url.includes('.png') || url.includes('.jpg')|| url.includes('.jpeg') || url.includes('.gif')))return;
+            //if(!(url.includes('.png') || url.includes('.jpg')|| url.includes('.jpeg') || url.includes('.gif')))return;
             nsfww.setImage(url)
             .setDescription("")
             msg.edit(nsfww);
