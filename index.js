@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const Discord = require('discord.js');
 const bot = new Discord.Client({
     disableEvryone: true,
@@ -13,6 +14,14 @@ let randomszám;
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
+    /*let gag;
+    let aga;
+    bot.guilds.cache.forEach(guild => {
+        console.log(`${guild.name} | ${guild.id}`);
+        aga = gag += `{"Name":"${guild.name}","ID:","${guild.id}"},\n`;
+    })
+    gag = "[\n" + aga + "]";
+    axios.post(`http://localhost:8000/bot/${gag.replace(',]', ']').replace(undefined, '')}`);*/
 });
 bot.on("message", async (message) => {
     const prefix = botconfig.prefix;
@@ -22,14 +31,14 @@ bot.on("message", async (message) => {
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-try{
-    const cmd = require(`./commands/${command}.js`);
+    try {
+        const cmd = require(`./commands/${command}.js`);
 
 
-    if (!cmd) return;
+        if (!cmd) return;
 
-    cmd.run(bot, message, args);
-}catch(err){return;}
+        cmd.run(bot, message, args);
+    } catch (err) { return; }
 
 });
 
@@ -38,9 +47,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
         const cucc = this.kopa[reaction.message.id];
         if (user.id != cucc.author) return;
         const kopapirolo = new Discord.MessageEmbed()
-        .setTitle("Kő Papír Olló")
-        .setTimestamp(Date.now())
-        .setColor("RANDOM")
+            .setTitle("Kő Papír Olló")
+            .setTimestamp(Date.now())
+            .setColor("RANDOM")
         let kopi;
         switch (reaction.emoji.name) {
             case '👊':
@@ -53,34 +62,34 @@ bot.on('messageReactionAdd', (reaction, user) => {
                 kopi = 2;
                 break;
         }
-        if(kopi == cucc.randomszam){
+        if (kopi == cucc.randomszam) {
             kopapirolo.setDescription("🎉Nyertél🎉")
-                        .addField("Tipped:",`${reaction.emoji.name}`);
-                        switch(cucc.randomszam){
-                            case 0:
-                            kopapirolo.addField("Eredmény:",'👊');
-                            break;
-                            case 1: 
-                            kopapirolo.addField("Eredmény:",'📜');
-                            break;
-                            case 2:
-                            kopapirolo.addField("Eredmény:",'✂');
-                        }
-        }else{
+                .addField("Tipped:", `${reaction.emoji.name}`);
+            switch (cucc.randomszam) {
+                case 0:
+                    kopapirolo.addField("Eredmény:", '👊');
+                    break;
+                case 1:
+                    kopapirolo.addField("Eredmény:", '📜');
+                    break;
+                case 2:
+                    kopapirolo.addField("Eredmény:", '✂');
+            }
+        } else {
             kopapirolo.setDescription("Vesztettél")
-                        .addField("Tipped:",`${reaction.emoji.name}`);
-                        switch(cucc.randomszam){
-                            case 0:
-                            kopapirolo.addField("Eredmény:",'👊');
-                            break;
-                            case 1: 
-                            kopapirolo.addField("Eredmény:",'📜');
-                            break;
-                            case 2:
-                            kopapirolo.addField("Eredmény:",'✂');
-                        }
+                .addField("Tipped:", `${reaction.emoji.name}`);
+            switch (cucc.randomszam) {
+                case 0:
+                    kopapirolo.addField("Eredmény:", '👊');
+                    break;
+                case 1:
+                    kopapirolo.addField("Eredmény:", '📜');
+                    break;
+                case 2:
+                    kopapirolo.addField("Eredmény:", '✂');
+            }
         }
-        
+
         reaction.message.edit(kopapirolo);
         this.kopa[reaction.message.id] = undefined;
     }
@@ -94,7 +103,7 @@ bot.on("guildMemberAdd", (member) => {
         .setTimestamp(Date.now())
         .setColor("RANDOM");
     const channel = bot.channels.cache.find(ch => ch.name === 'üdvözlő');
-    if(!join)return;
+    if (!join) return;
     channel.send(join);
 });
 bot.login(process.env.TOKEN);
