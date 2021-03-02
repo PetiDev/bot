@@ -62,34 +62,45 @@ bot.on('messageReactionAdd', (reaction, user) => {
                 kopi = 2;
                 break;
         }
-        if (kopi == cucc.randomszam) {
-            kopapirolo.setDescription("🎉Nyertél🎉")
-                .addField("Tipped:", `${reaction.emoji.name}`);
-            switch (cucc.randomszam) {
-                case 0:
-                    kopapirolo.addField("Eredmény:", '👊');
-                    break;
-                case 1:
-                    kopapirolo.addField("Eredmény:", '📜');
-                    break;
-                case 2:
-                    kopapirolo.addField("Eredmény:", '✂');
-            }
-        } else {
-            kopapirolo.setDescription("Vesztettél")
-                .addField("Tipped:", `${reaction.emoji.name}`);
-            switch (cucc.randomszam) {
-                case 0:
-                    kopapirolo.addField("Eredmény:", '👊');
-                    break;
-                case 1:
-                    kopapirolo.addField("Eredmény:", '📜');
-                    break;
-                case 2:
-                    kopapirolo.addField("Eredmény:", '✂');
-            }
+        if (kopi == 0 && cucc.randomszam == 1) {
+            kopapirolo.setDescription("Veszítettél");
+        }
+        if (kopi == 0 && cucc.randomszam == 2) {
+            kopapirolo.setDescription("🎉Nyertél🎉");
         }
 
+        if (kopi == 1 && cucc.randomszam == 2) {
+            kopapirolo.setDescription("Veszítettél");
+        }
+        if (kopi == 1 && cucc.randomszam == 0) {
+            kopapirolo.setDescription("🎉Nyertél🎉");
+        }
+
+        if (kopi == 2 && cucc.randomszam == 0) {
+            kopapirolo.setDescription("Veszítettél");
+        }
+        if (kopi == 2 && cucc.randomszam == 1) {
+            kopapirolo.setDescription("🎉Nyertél🎉");
+        }
+
+        if(kopi == cucc.randomszam){
+            kopapirolo.setDescription("Döntetlen");
+        }
+
+        switch (cucc.randomszam) {
+            case 0:
+                kopapirolo.addField("Eredmény:", '👊');
+                break;
+            case 1:
+                kopapirolo.addField("Eredmény:", '📜');
+                break;
+            case 2:
+                kopapirolo.addField("Eredmény:", '✂');
+                break;
+        }
+
+
+        kopapirolo.addField("Tipped:", `${reaction.emoji.name}`);
         reaction.message.edit(kopapirolo);
         this.kopa[reaction.message.id] = undefined;
     }

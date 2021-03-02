@@ -17,6 +17,7 @@
         "howgay":" Howgay <@ember>",
         "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "8-ball":" 8-ball x,y,z | random sorsolás",
+        "kő_papír_olló":"Csak ird be és reagálj",
         "idő":" Kiírja az időt",
         "szavazás":"szavazás (pref-szavazás <szöveeg>)",
         "coin":"Dobj fel egy érmét és fogadj rá (pref-coin <fej/írás>)",
