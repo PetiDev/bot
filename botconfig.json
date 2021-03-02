@@ -13,7 +13,7 @@
     "help":{
         "help":" Ez a lista",
         "ping":" Teszt command",
-        "calc":" Kiszámolja amit beleírsz (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "calc":" Kiszámolja amit beleírsz [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "howgay":" Howgay <@ember>",
         "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "8-ball":" 8-ball x,y,z | random sorsolás",
@@ -34,7 +34,7 @@
     },
     "error":{
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
-        "calc":" Valamit elrontottál ezekkel tutdsz számolni: (osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "calc":" Valamit elrontottál ezekkel tutdsz számolni: [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba",
         "vote":"Írj valamit amit meg kell szavazni",

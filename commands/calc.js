@@ -8,7 +8,8 @@ const prefix = botconfig.prefix;
 module.exports = {
     name:"calc",
 run: function(bot,message,args){
-        const szam = message.content.replace(/write/g, '').replace(/process/g, '').replace(/destroy/g, '').replace(/bot/g, '').replace(/clear/g, '').replace(/kill/g, '').replace(/eval/g, '').replace(/botconfig/g, '').replace(/exit/g, '').replace(/fs/g, '').replace(/require/g, '').replace(/req/g, '').replace(prefix, '').replace(/calc/, '');
+        const szam = message.content.replace(prefix,'').replace("calc",'').replace(/[C-Zc-z]/g,'')    //.replace(/write/g, '').replace(/process/g, '').replace(/destroy/g, '').replace(/bot/g, '').replace(/clear/g, '').replace(/kill/g, '').replace(/eval/g, '').replace(/botconfig/g, '').replace(/exit/g, '').replace(/fs/g, '').replace(/require/g, '').replace(/req/g, '').replace(prefix, '').replace(/calc/, '');
+        console.log(szam)
         try {
             const eredmeny = eval(szam);
             const calce = new Discord.MessageEmbed()
