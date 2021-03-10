@@ -11,7 +11,7 @@ run: function(bot,message,args){
     
     console.log("ping = " + bot.ws.ping + "ms")
     const ping = new Discord.MessageEmbed()
-        .setTitle("Pong")
+        .setTitle("Pong <a:pinghammer:809461559117348904>")
         .addField("A ping: ", `${bot.ws.ping}ms`)
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
