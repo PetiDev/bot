@@ -112,15 +112,4 @@ bot.on('messageReactionAdd', (reaction, user) => {
     }
 
 })
-bot.on("guildMemberAdd", (member) => {
-
-    const join = new Discord.MessageEmbed()
-        .setTitle("Üdv itt")
-        .setDescription(member.username)
-        .setTimestamp(Date.now())
-        .setColor("RANDOM");
-    const channel = bot.channels.cache.find(ch => ch.name === 'üdvözlő');
-    if (!join) return;
-    channel.send(join);
-});
 bot.login(process.env.TOKEN);

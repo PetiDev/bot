@@ -22,16 +22,17 @@
         "szavazás":"szavazás (pref-szavazás <szöveeg>)",
         "coin":"Dobj fel egy érmét és fogadj rá (pref-coin <fej/írás>)",
         "nsfw":"vagy csak simán nsfw vagy nsfw anime",
+        "kick":"kick <@felhasználó> | indok",
         "meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
         "server_info":"Kiírja a szerver információit",
         "info":"Kiírja a beíró információit",
         "bot_info":"Infók a botról"
     },
-    "alisdef":"Commandok a bot Adminnak",
+    "alisdef":"Commandok a bot adminnak",
     "ahelp":{
-        "pref-stop":"Leállítja a botot",
-        "pref-bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)",
-        "pref-dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
+        "stop":"Leállítja a botot",
+        "bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)",
+        "dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
     },
     "error":{
         "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
