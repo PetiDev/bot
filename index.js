@@ -61,6 +61,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
             case '✂':
                 kopi = 2;
                 break;
+            case '🧍‍♂️':
+                kopi = 3;
+                break;
         }
         if (kopi == 0 && cucc.randomszam == 1) {
             kopapirolo.setDescription("Veszítettél");
@@ -81,6 +84,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
         }
         if (kopi == 2 && cucc.randomszam == 1) {
             kopapirolo.setDescription("🎉Nyertél🎉");
+        }
+        if (kopi == 3) {
+            kopapirolo.setDescription("Cigány mindent visz");
         }
 
         if(kopi == cucc.randomszam){
