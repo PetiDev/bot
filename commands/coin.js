@@ -10,7 +10,15 @@ module.exports = {
 run: function(bot,message,args){
     
     let tip = message.content.replace(prefix, '').replace('coin ', '');
-        if (tip == "coin") tip = "Nem adtál meg semmit";
+        if (tip == "coin"){
+            const coinf = new Discord.MessageEmbed()
+            .setColor("RANDOM")
+            .setTitle("Coin flipp")
+            .addField("Error: ", `Meg kell adnod a tipped(fej/írás)`)
+            coinf.setTimestamp(Date.now())
+            coinf.setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+        message.channel.send(coinf);
+        }else{
         let ek = Math.floor(Math.random() * 2 + 1);
         let coin;
         let wol = "Vesztettél";
@@ -21,10 +29,12 @@ run: function(bot,message,args){
         }
         const coinf = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle(wol)
-            .addField("Eredmény:", `${coin}`)
-            .addField("A Tipped:", `${tip}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            .setTitle("Coin flipp")
+            .setDescription(wol)
+            .addField("Eredmény:", `${coin}`,true)
+            .addField("A Tipped:", `${tip}`,true)
+            coinf.setTimestamp(Date.now())
+            coinf.setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         message.channel.send(coinf);
+    }
 }}

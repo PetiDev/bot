@@ -1,7 +1,7 @@
 {
     "creator":"ICreeper12",
     "creatorid":"423093436313501696",
-    "prefix":":p ",
+    "prefix":":d ",
     "token":"https://youtu.be/dQw4w9WgXcQ",
     
     "elfoglaltsag":{
@@ -26,7 +26,7 @@
         "kick":"kick <@felhasználó> | indok",
         "meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
         "server_info":"Kiírja a szerver információit",
-        "info":"Kiírja a beíró információit",
+        "info":"info <@ember> /  ha nem adsz meg semmit akkor a küldőre vonatkozik",
         "bot_info":"Infók a botról"
     },
     "alisdef":"Commandok a bot adminnak",

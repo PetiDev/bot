@@ -15,9 +15,9 @@ run: function(bot,message,args){
             .setThumbnail(message.guild.iconURL())
             .addField("Név: ", `${message.guild}`)
             .addField("Tulaj ID:", `${message.guild.owner}`)
-            .addField("Tagok:", `${message.guild.memberCount} tag van a szerveren`)
-            .addField("Emojik:", `${message.guild.emojis.cache.size} emoji van`)
-            .addField("Rangok:", `${message.guild.roles.cache.size} rang van`)
+            .addField("Tagok:", `${message.guild.memberCount} db`,true)
+            .addField("Emojik:", `${message.guild.emojis.cache.size} db`,true)
+            .addField("Rangok:", `${message.guild.roles.cache.size} db`,true)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`);
         message.channel.send(serstat);
