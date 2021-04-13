@@ -14,7 +14,8 @@
         "help":" Ez a lista",
         "ping":" Teszt command",
         "calc":" Kiszámolja amit beleírsz [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
-        "howgay":" Howgay <@ember>",
+        "howgay":" Howgay <@ember> / ha nem adsz meg semmit akkor a küldőre vonatkozik",
+        "penis":" Penis <@ember / ha nem adsz meg semmit akkor a küldőre vonatkozik>",
         "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "8-ball":" 8-ball x,y,z | random sorsolás",
         "kő_papír_olló":"Csak ird be és reagálj",
@@ -35,7 +36,7 @@
         "dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
     },
     "error":{
-        "howgay":" Be kell jelölnöd valvkit (pref-howgay <@ember>)",
+        "howgay":" Be kell jelölnöd valakit (pref-howgay <@ember>)",
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba",
