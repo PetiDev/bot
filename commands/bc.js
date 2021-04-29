@@ -6,22 +6,24 @@ const bot = new Discord.Client({
 const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
-    name:"bc",
-run: function(bot,message,args){
-    
-    if (message.author.id == "336233673911173120" || message.author.id == botconfig.creatorid) {
-        let me = message.content.replace(prefix, '').replace("bc ", '').replace(message.mentions.channels.array()[0], '');
-        if(!message.mentions.channel) message.channel.send(botconfig.error.bc.replace(/pref-/,prefix));
-        let csat = message.mentions.channels.array()[0].name;
-        const channel = message.guild.channels.cache.find(ch => ch.name === csat);
-        if (!channel) return;
-        const bcMe = new Discord.MessageEmbed()
-            .setTitle(me)
+    name: "bc",
+    run: function (bot, message, args) {
+
+        if (!(message.author.id == botconfig.bendi || message.author.id == botconfig.creatorid)) return;
+
+        let Message = args.join(' ').replace(/<#(\d)+>/, '');
+        let channelName = message.mentions.channels.first().name;
+        const channel = message.guild.channels.cache.find(channelList => channelList.name === channelName);
+        const bc = new Discord.MessageEmbed()
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor("RANDOM");
-        channel.send(bcMe);
-    } else {
-        return;
+        if (!channel) {
+            bc.setDescription("Meg kell jelölnöd egy létező csatornát")
+        } else {
+            bc.setDescription(Message)
+        }
+        channel.send(bc);
+
     }
-}}
+}

@@ -17,10 +17,10 @@ module.exports = {
     Object.entries(botconfig.help).forEach((key,value) => {
         hrlp.addField(prefix + key[0], key[1].replace(/pref-/g,prefix));
         })
-    if (message.author.id == botconfig.creatorid) {
+    if ((message.author.id == botconfig.creatorid) || message.author.id == botconfig.bendi) {
         hrlp.addField("\n __**Admin help**__ \n",`${botconfig.alisdef}`);
         Object.entries(botconfig.ahelp).forEach((key,value) => {
             hrlp.addField(prefix + key[0], key[1].replace(/pref-/g,prefix));
-            }) } else {}
+            }) }
     message.channel.send(hrlp);
 }}

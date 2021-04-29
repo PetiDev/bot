@@ -7,7 +7,7 @@ const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
     name:"server_info",
-run: function(bot,message,args){
+run: function(bot,message){
     
     const serstat = new Discord.MessageEmbed()
             .setColor("RANDOM")

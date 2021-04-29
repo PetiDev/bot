@@ -9,32 +9,25 @@ module.exports = {
     name:"coin",
 run: function(bot,message,args){
     
-    let tip = message.content.replace(prefix, '').replace('coin ', '');
-        if (tip == "coin"){
-            const coinf = new Discord.MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle("Coin flipp")
-            .addField("Error: ", `Meg kell adnod a tipped(fej/írás)`)
-            coinf.setTimestamp(Date.now())
-            coinf.setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-        message.channel.send(coinf);
-        }else{
-        let ek = Math.floor(Math.random() * 2 + 1);
-        let coin;
-        let wol = "Vesztettél";
-        if (ek > 1) coin = "fej";
-        if (ek < 2) coin = "írás";
-        if (tip == coin) {
-            wol = "Nyertél";
+    let tip = args[0];
+    if(!(tip.includes('fej')||tip.includes('írás')))return;
+    const num = Math.round(Math.random()*1);
+    const coinFlipp = new Discord.MessageEmbed()
+        .setTitle('Coinflipp')
+        .setTimestamp(Date.now())
+        .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+        .setColor("RANDOM")
+        .addField("Tipped: ",`${tip}`,true)
+
+        if(num == 1){
+            coinFlipp.addField("Érme:","írás",true)
+        }else {
+            coinFlipp.addField("Érme:","fej",true)
         }
-        const coinf = new Discord.MessageEmbed()
-            .setColor("RANDOM")
-            .setTitle("Coin flipp")
-            .setDescription(wol)
-            .addField("Eredmény:", `${coin}`,true)
-            .addField("A Tipped:", `${tip}`,true)
-            coinf.setTimestamp(Date.now())
-            coinf.setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-        message.channel.send(coinf);
-    }
+        if((num == 1 && tip == 'fej') || (num == 0 && tip == 'írás')){
+            coinFlipp.addField("Eredmény:","Vesztettél")
+        }else{
+            coinFlipp.addField("Eredmény:","Nyertél")
+        }
+        message.channel.send(coinFlipp)
 }}

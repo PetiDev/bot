@@ -6,27 +6,23 @@ const bot = new Discord.Client({
 const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
-    name:"8-ball",
-    
-run: function(bot,message,args){
-    try {
-        let ar = message.content.replace(prefix, '').replace("8-ball", '').replace(' ', '').split(',');
-        let d = Math.floor(Math.random() * ar.length);
-        let rand = ar[d];
+    name: "8-ball",
+    run: function (bot, message, args) {
+
         const ball = new Discord.MessageEmbed()
             .setTitle("8-ball")
-            .addField("Eredmény: ", `${rand}`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor("RANDOM");
-        message.channel.send(ball);
-    } catch (e) {
-        const ball = new Discord.MessageEmbed()
-            .setTitle("8-ball")
-            .addField("Eredmény: Hiba ", `${botconfig.error.nball}`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+        if (!args.length) {
+            ball.addField("Eredmény: Hiba ", `${botconfig.error.nball}`)
+            message.channel.send(ball);
+            return;
+        }
+        let d = Math.floor(Math.random() * args.length);
+        let rand = args[d];
+
+        ball.addField("Eredmény: ", `${rand}`)
         message.channel.send(ball);
     }
-}}
+}

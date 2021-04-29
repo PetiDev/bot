@@ -7,7 +7,7 @@ const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
     name:"idő",
-run: function(bot,message,args){
+run: function(bot,message){
     
     try {
         let date = new Date();

@@ -7,7 +7,7 @@ const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
     name:"ping",
-run: function(bot,message,args){
+run: function(bot,message){
     
     console.log("ping = " + bot.ws.ping + "ms")
     const ping = new Discord.MessageEmbed()

@@ -6,38 +6,26 @@ const bot = new Discord.Client({
 const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
-    name:"howgay",
-    
-run: function(bot,message,args){
-    let szemelyek = message.mentions.users.first();
-    let szemely;
-    let kuldo = message.author;
-    let szama = 0;
-    let szemelyId;
-    try {
-        szemely = (szemelyek)? szemelyek.username : kuldo.username;
-        szemelyId = (szemelyek)? szemelyek.id : kuldo.id;
-    } catch (erro) {
+    name: "howgay",
+    run: function (bot, message) {
+        let person = message.mentions.users.first();
+        let kuldo = message.author;
+        let user = (person) ? person.username : kuldo.username;
+        let userId = (person) ? person.id : kuldo.id;
+        let num;
+        
+        if (userId == botconfig.creatorid) {
+            num = Math.floor(Math.random() * 25);
+        } else {
+            num = Math.floor(Math.random() * 100);
+        }
         const gay = new Discord.MessageEmbed()
             .setTitle("Howgay")
-            .addField("Error: ", `${botconfig.error.howgay.replace(/pref-/g, prefix)}`)
+            .addField(user + " ", `${num}% gay`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor("RANDOM");
+        if (num >= 50) gay.setColor("#ff9ff3");
         message.channel.send(gay);
-        return;
     }
-    if (szemelyId == botconfig.creatorid) {
-        szama = Math.floor(Math.random() * 25);
-    } else {
-            szama = Math.floor(Math.random() * 100);
-        }
-    const gay = new Discord.MessageEmbed()
-        .setTitle("Howgay")
-        .addField(szemely + " ", `${szama}% gay`)
-        .setTimestamp(Date.now())
-        .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-        .setColor("RANDOM");
-        if(szama >= 50)gay.setColor("#ff9ff3");
-    message.channel.send(gay);
-}}
+}

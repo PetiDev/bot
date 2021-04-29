@@ -8,38 +8,26 @@ const prefix = botconfig.prefix;
 module.exports = {
     name:"penis",
     
-run: function(bot,message,args){
-    let szemelyek = message.mentions.users.first();
-    let szemely;
-    let kuldo = message.author;
-    let szama = 0;
-    let eq = '';
-    try {
-        szemely = (szemelyek)? szemelyek.username : kuldo.username;
-        szemelyId = (szemelyek)? szemelyek.id : kuldo.id;
-    } catch (erro) {
-        
-        const penis = new Discord.MessageEmbed()
-            .setTitle("Penis")
-            .addField("Error: ", `Nem tudom mit tudtál elrontani`)
-            .setTimestamp(Date.now())
-            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
-        message.channel.send(penis);
-        return;
-    }
-    if (szemelyId == botconfig.creatorid) {
-        szama = Math.floor(Math.random() * 65);
+run: function(bot,message){
+    let personMention = message.mentions.users.first();
+    let sender = message.author;
+    let num;
+    let ppLength = '';
+   
+    let person = (personMention)? personMention.username : sender.username;
+    let personId = (personMention)? personMention.id : sender.id;
+    
+    if (personId == botconfig.creatorid) {
+        num = Math.floor(Math.random() * 65);
     } else {
-            szama = Math.floor(Math.random() * 50);
+            num = Math.floor(Math.random() * 50);
         }
         
-    for(count=szama;count>=0;count--){
-        eq += '=';
+    for(count=num;count>=0;count--){
+        ppLength += '=';
     }
     const penis = new Discord.MessageEmbed()
-        .setTitle("Penis")
-        .addField(szemely + " pénisze\n", `8${eq}D`)
+        .addField(person + " pénisze\n", `8${ppLength}D`)
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         .setColor("RANDOM");

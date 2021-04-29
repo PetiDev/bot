@@ -7,17 +7,16 @@ const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
     name:"info",
-run: function(bot,message,args){
-    let person = message.mentions.users.first();
-    let sender = message.author;
-    let szemely = (person)? person : sender;
+run: function(bot,message){
+    let personMention = message.mentions.users.first();
+    let person = (personMention)? personMention : message.author;
     const stat = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle("Infók " + szemely.username + "-ról")
-            .setThumbnail(szemely.avatarURL())
-            .addField("Név:", `${szemely.username}`,true)
-            .addField("ID:", `${szemely.id}`,true)
-            .addField("Felhasználó létrehozva:", `${szemely.createdAt}`)
+            .setTitle("Infók " + person.username + "-ról")
+            .setThumbnail(person.avatarURL())
+            .addField("Név:", `${person.username}`,true)
+            .addField("ID:", `${person.id}`,true)
+            .addField("Felhasználó létrehozva:", `${person.createdAt}`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         message.channel.send(stat);

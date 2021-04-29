@@ -6,27 +6,23 @@ const bot = new Discord.Client({
 const botconfig = require('../botconfig.json');
 const prefix = botconfig.prefix;
 module.exports = {
-    name:"calc",
-run: function(bot,message,args){
-        const szam = message.content.replace(prefix,'').replace("calc",'').replace(/[C-Zc-z]/g,'')    //.replace(/write/g, '').replace(/process/g, '').replace(/destroy/g, '').replace(/bot/g, '').replace(/clear/g, '').replace(/kill/g, '').replace(/eval/g, '').replace(/botconfig/g, '').replace(/exit/g, '').replace(/fs/g, '').replace(/require/g, '').replace(/req/g, '').replace(prefix, '').replace(/calc/, '');
-        console.log(szam)
+    name: "calc",
+    run: function (bot, message, args) {
+        const operation = args.join('').replace(/[C-Zc-z]/g, '')    //.replace(/write/g, '').replace(/process/g, '').replace(/destroy/g, '').replace(/bot/g, '').replace(/clear/g, '').replace(/kill/g, '').replace(/eval/g, '').replace(/botconfig/g, '').replace(/exit/g, '').replace(/fs/g, '').replace(/require/g, '').replace(/req/g, '').replace(prefix, '').replace(/calc/, '');
+
+        const calcAns = new Discord.MessageEmbed()
+            .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
+            .setColor("RANDOM")
+            .setTimestamp(Date.now());
         try {
-            const eredmeny = eval(szam);
-            const calce = new Discord.MessageEmbed()
-                .setTitle("Eredmény: " + eredmeny)
-                .addField("Számolás: ", `${szam}`)
-                .setTimestamp(Date.now())
-                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-                .setColor("RANDOM");
-            message.channel.send(calce);
+            const answer = eval(operation);
+            calcAns.setTitle("Eredmény: " + answer)
+                .setDescription(`${operation}`)
         } catch (err) {
-            const calce = new Discord.MessageEmbed()
-                .setTitle("Eredmény: " + botconfig.error.hiba)
-                .addField("Számolás: Hiba", `${botconfig.error.calc}`)
-                .setTimestamp(Date.now())
-                .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-                .setColor("RANDOM");
-            message.channel.send(calce);
+            calcAns.setTitle("Eredmény: " + botconfig.error.hiba)
+                .setDescription(`${botconfig.error.calc}`)
         }
-    
-}}
+        message.channel.send(calcAns);
+
+    }
+}
