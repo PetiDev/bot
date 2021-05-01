@@ -6,11 +6,17 @@ const bot = new Discord.Client({
 });
 const { RedditSimple } = require("reddit-simple"); //reddit meme
 const botconfig = require('./botconfig.json');
+const fs = require('fs');//DANGERZONE
 const prefix = botconfig.prefix;
 exports.kopa = {};
+const cmds = fs.readdirSync('./commands');
+const commands = {};
+cmds.forEach((element)=>{
+    console.log(`${element} betöltve.`);
+    commands[element] = require(`./commands/${element}`);
+})
 
 
-let randomszám;
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
@@ -32,7 +38,7 @@ bot.on("message", async (message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     try {
-        const cmd = require(`./commands/${command}.js`);
+        const cmd = commands[`${command}.js`]
 
 
         if (!cmd) return;
