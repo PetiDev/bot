@@ -2,7 +2,7 @@
     "creator":"ICreeper12",
     "bendi":"336233673911173120",
     "creatorid":"423093436313501696",
-    "prefix":":p ",
+    "prefix":"--",
     "token":"https://youtu.be/dQw4w9WgXcQ",
     
     "elfoglaltsag":{
@@ -13,14 +13,14 @@
     },
     "help":{
         "help":" Ez a lista",
-        "ping":" Teszt command",
+        "ping":" Ping lekérése",
         "calc":" Kiszámolja amit beleírsz [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "howgay":" Howgay <@ember> / ha nem adsz meg semmit akkor a küldőre vonatkozik",
         "penis":" Penis <@ember / ha nem adsz meg semmit akkor a küldőre vonatkozik>",
         "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "kő_papír_olló":"Csak ird be és reagálj",
         "idő":" Kiírja az időt",
-        "szavazás":"szavazás (pref-szavazás <szöveeg>)",
+        "szavazás":"szavazás (pref-szavazás <szöveg>)",
         "coin":"Dobj fel egy érmét és fogadj rá (pref-coin <fej/írás>)",
         "nsfw":"vagy csak simán nsfw vagy nsfw anime",
         "kick":"kick <@felhasználó> | indok",
