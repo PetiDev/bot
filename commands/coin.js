@@ -16,7 +16,7 @@ run: function(bot,message,args){
         .setTitle('Coinflipp')
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-        .setColor("RANDOM")
+        .setColor(`${botconfig.color}`)
         .addField("Tipped: ",`${tip}`,true)
 
         if(num == 1){

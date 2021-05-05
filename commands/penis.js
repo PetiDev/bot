@@ -30,6 +30,6 @@ run: function(bot,message){
         .addField(person + " pénisze\n", `8${ppLength}D`)
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-        .setColor("RANDOM");
+        .setColor(`${botconfig.color}`);
     message.channel.send(penis);
 }}

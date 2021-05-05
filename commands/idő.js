@@ -15,7 +15,7 @@ run: function(bot,message){
             .setTitle("Idő: " + date.toLocaleString())
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
         message.channel.send(ido);
     } catch (err) { console.log("Idő lekérési hiba: \n" + err); }
 }}

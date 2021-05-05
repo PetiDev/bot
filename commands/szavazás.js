@@ -10,7 +10,7 @@ module.exports = {
 run: function(bot,message,args){
   
     const vote = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor(`${botconfig.color}`)
             .setTitle("Szavazás:")    
             .setDescription(`${args.join(' ')}`)
             .setTimestamp(Date.now())

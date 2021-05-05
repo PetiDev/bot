@@ -17,7 +17,7 @@ module.exports = {
         const bc = new Discord.MessageEmbed()
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
         if (!channel) {
             bc.setDescription("Meg kell jelölnöd egy létező csatornát")
         } else {

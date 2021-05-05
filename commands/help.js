@@ -13,7 +13,7 @@ module.exports = {
     .setTitle("Help")
     .setTimestamp(Date.now())
     .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-    .setColor("RANDOM");
+    .setColor(`${botconfig.color}`);
     Object.entries(botconfig.help).forEach((key,value) => {
         hrlp.addField(prefix + key[0], key[1].replace(/pref-/g,prefix));
         })

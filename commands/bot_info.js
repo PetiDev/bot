@@ -10,7 +10,7 @@ module.exports = {
 run: function(bot,message,args){
     
     const botstat = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor(`${botconfig.color}`)
             .setTitle("Infók a botról.")
             .setThumbnail(bot.user.avatarURL())
             .addField("Név:", `${bot.user.username}`)

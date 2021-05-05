@@ -15,7 +15,7 @@ run: async function (bot,message,args) {
     }
     const reddits = ['dankmemes', 'programmerHumor', 'holdup', 'cursedcomments']
     const memee = new Discord.MessageEmbed()
-        .setColor("RANDOM")
+        .setColor(`${botconfig.color}`)
         .setAuthor(bot.user.username, bot.user.avatarURL())
         .setDescription("Keresés...")
         .setTimestamp(Date.now())

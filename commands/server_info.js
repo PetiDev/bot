@@ -10,7 +10,7 @@ module.exports = {
 run: function(bot,message){
     
     const serstat = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor(`${botconfig.color}`)
             .setTitle("Server Info")
             .setThumbnail(message.guild.iconURL())
             .addField("Név: ", `${message.guild}`)

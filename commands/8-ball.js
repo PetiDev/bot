@@ -13,7 +13,7 @@ module.exports = {
             .setTitle("8-ball")
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
         if (!args.length) {
             ball.addField("Eredmény: Hiba ", `${botconfig.error.nball}`)
             message.channel.send(ball);

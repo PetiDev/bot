@@ -18,7 +18,7 @@ run: function(bot,message,args){
         if (num >= 50 && num <= 75) hart = "💖";
         if (num >= 75) hart = "💘";
         const lovembed = new Discord.MessageEmbed()
-            .setColor('RANDOM')
+            .setColor(`${botconfig.color}`)
             .setTitle("Szerelem?")
             .setDescription(`${personArray[0]} és ${personArray[1]}`)
             .addField(`${num}%-ban össze illenek`, `${hart}`)

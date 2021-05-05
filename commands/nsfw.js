@@ -25,7 +25,7 @@ module.exports = {
         }
 
         const nsfww = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor(`${botconfig.color}`)
             .setAuthor(bot.user.username, bot.user.avatarURL())
             .setDescription("Keresés...")
             .setTimestamp(Date.now())

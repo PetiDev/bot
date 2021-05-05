@@ -24,7 +24,7 @@ module.exports = {
             .addField(user + " ", `${num}% gay`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
         if (num >= 50) gay.setColor("#ff9ff3");
         message.channel.send(gay);
     }

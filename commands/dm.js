@@ -16,7 +16,7 @@ run: function(bot,message,args){
         
         try { ember.send(azuzi); } catch {
             const dmHiba = new Discord.MessageEmbed()
-                .setColor('RANDOM')
+            .setColor(`${botconfig.color}`)
                 .setTitle("DM")
                 .setDescription(`${botconfig.error.dm.replace(/pref-/g, prefix)}`)
 

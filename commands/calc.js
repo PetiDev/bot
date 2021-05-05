@@ -12,7 +12,7 @@ module.exports = {
 
         const calcAns = new Discord.MessageEmbed()
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM")
+            .setColor(`${botconfig.color}`)
             .setTimestamp(Date.now());
         try {
             const answer = eval(operation);

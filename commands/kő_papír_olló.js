@@ -15,7 +15,7 @@ module.exports = {
         const kopapir = new Discord.MessageEmbed()
             .setTitle("kő papír olló")
             .setTimestamp(Date.now())
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
         message.channel.send(kopapir)
             .then(function (msg) {
                 msg.react("👊")

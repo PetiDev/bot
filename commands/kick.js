@@ -25,7 +25,7 @@ run: function(bot,message,args){
             .setDescription("Meg kell jelölnöd valakit")
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
             message.channel.send(kick);
             return;
         }
@@ -37,7 +37,7 @@ run: function(bot,message,args){
             .addField(`${mess[0]} sikeresen kickelve`,`Indok: ${mess[1]}`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
-            .setColor("RANDOM");
+            .setColor(`${botconfig.color}`);
             message.channel.send(kick);
         })
             .catch(console.error);
