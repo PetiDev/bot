@@ -13,7 +13,11 @@ run: function(bot,message,args){
     let role;
     try{
         message.guild.roles.cache.forEach(element => {
-            if(element.name == "Muted"){role = element}
+            if(element.name == "Muted"|| element.name == "muted" ){
+                role = element;
+
+                return;
+            }
         });
     }catch(e){}
   
