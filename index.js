@@ -20,14 +20,7 @@ cmds.forEach((element)=>{
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
-    /*let gag;
-    let aga;
-    bot.guilds.cache.forEach(guild => {
-        console.log(`${guild.name} | ${guild.id}`);
-        aga = gag += `{"Name":"${guild.name}","ID:","${guild.id}"},\n`;
-    })
-    gag = "[\n" + aga + "]";
-    axios.post(`http://localhost:8000/bot/${gag.replace(',]', ']').replace(undefined, '')}`);*/
+  
 });
 bot.on("message", async (message) => {
     const prefix = botconfig.prefix;
