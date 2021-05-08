@@ -17,6 +17,7 @@
         "ping":" Ping lekérése",
         "calc":" Kiszámolja amit beleírsz [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "howgay":" Howgay <@ember> / ha nem adsz meg semmit akkor a küldőre vonatkozik",
+        "haromszog":"(ha valamit nem szeretnél megadni írj oda nullát)\n haromszog <alfa> <béta> <delta> <alfa.> <béta.> <delta.>",
         "penis":" Penis <@ember / ha nem adsz meg semmit akkor a küldőre vonatkozik>",
         "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
         "kő_papír_olló":"Csak ird be és reagálj",
@@ -33,6 +34,7 @@
     "alisdef":"Commandok a bot adminnak",
     "ahelp":{
         "stop":"Leállítja a botot",
+        "mute":"mute név indok",
         "bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)",
         "dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
     },
