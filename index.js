@@ -19,7 +19,7 @@ cmds.forEach((element)=>{
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
-    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/pref-/g, prefix), { type: botconfig.elfoglaltsag.type });
+    bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/%prefix%/g, prefix), { type: botconfig.elfoglaltsag.type });
   
 });
 bot.on("message", async (message) => {
