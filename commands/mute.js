@@ -9,6 +9,8 @@ module.exports = {
     name:"mute",
 run: function(bot,message,args){
 
+    if (!message.author.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nincs jogod hozzá");
+
     let member = message.mentions.members.first();
     let role;
     try{

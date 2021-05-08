@@ -7,7 +7,7 @@
     "token":"https://youtu.be/dQw4w9WgXcQ",
     
     "elfoglaltsag":{
-        "elfoglaltsag":"pref-help",
+        "elfoglaltsag":"%prefix%help",
         "type":"WATCHING",
         "_comment":"PLAYING,LISTENING,STREAMING,COMPETING,WATCHING"
     
@@ -15,38 +15,38 @@
     "help":{
         "help":" Ez a lista",
         "ping":" Ping lekérése",
-        "calc":" Kiszámolja amit beleírsz [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
+        "calc":" Kiszámolja amit beleírsz \n[Változók amiket használhatsz: a,b]\n(osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "howgay":" Howgay <@ember> / ha nem adsz meg semmit akkor a küldőre vonatkozik",
         "haromszog":"(ha valamit nem szeretnél megadni írj oda nullát)\n haromszog <alfa> <béta> <delta> <alfa.> <béta.> <delta.>",
         "penis":" Penis <@ember / ha nem adsz meg semmit akkor a küldőre vonatkozik>",
-        "love":"Megmutatja mennyire illik össze két ember (pref-love <1.ember> <2.ember>)",
+        "love":"Megmutatja mennyire illik össze két ember \n(%prefix%love <1.ember> <2.ember>)",
         "kő_papír_olló":"Csak ird be és reagálj",
         "idő":" Kiírja az időt",
-        "szavazás":"szavazás (pref-szavazás <szöveg>)",
-        "coin":"Dobj fel egy érmét és fogadj rá (pref-coin <fej/írás>)",
-        "nsfw":"vagy csak simán nsfw vagy nsfw anime",
+        "szavazás":"szavazás \n(%prefix%szavazás <szöveg>)",
+        "coin":"Dobj fel egy érmét és fogadj rá \n(%prefix%coin <fej/írás>)",
+        "nsfw":"Ömmm... igen \n(%prefix%nsfw [<semmi>,anime])",
         "kick":"kick <@felhasználó> | indok",
+        "mute":"mute név indok \n(%prefix%mute @név <indok>)",
         "meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
-        "server_info":"Kiírja a szerver információit",
-        "info":"info <@ember> /  ha nem adsz meg semmit akkor a küldőre vonatkozik",
-        "bot_info":"Infók a botról"
+        "info":"%prefix%info [user,bot,server]"
+        
     },
-    "alisdef":"Commandok a bot adminnak",
+    "alisdef":"Commandok a bot tulajdonosának",
     "ahelp":{
         "stop":"Leállítja a botot",
-        "mute":"mute név indok",
-        "bc":"Kiírja a bot amit beirsz(pref-bc #channel <üzenet>)",
-        "dm":"Dm üzenet valakinek(pref-dm <@tag> <üzenet>)"
+        
+        "bc":"Kiírja a bot amit beirsz \n(%prefix%bc #channel <üzenet>)",
+        "dm":"Dm üzenet valakinek \n(%prefix%dm <@tag> <üzenet>)"
     },
     "error":{
-        "howgay":" Be kell jelölnöd valakit (pref-howgay <@ember>)",
+        "howgay":" Be kell jelölnöd valakit (%prefix%howgay <@ember>)",
         "calc":" Valamit elrontottál ezekkel tutdsz számolni: [Változók amiket használhatsz: a,b](osztás: **/** | szorzás: ***** | összeadás: **+** | kivonás: **-**)",
         "nball":" adj meg lehetőségeket vesszővel elválasztva",
         "hiba":"hiba",
         "vote":"Írj valamit amit meg kell szavazni",
         "love":"Adj meg két embert",
-        "dm":"Jelölj meg valakit(pref-dm <@tag> <üzenet>)",
-        "bc":"Jelölj meg egy létező csatornát (pref-bc <#csatorna> <üzenet>)"
+        "dm":"Jelölj meg valakit(%prefix%dm <@tag> <üzenet>)",
+        "bc":"Jelölj meg egy létező csatornát (%prefix%bc <#csatorna> <üzenet>)"
     }
 
 
