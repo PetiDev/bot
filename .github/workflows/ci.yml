@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: icreeper12/bot:latest
+          tags: ${{ secrets.URL }}/bot:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
