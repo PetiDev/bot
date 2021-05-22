@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v1 
         with:
           registry: docker.pkg.github.com
-          username: ${{ github.repository_owner }}
+          username: ICreeper12
           password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build and push
@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ICreeper12/bot:latest
+          tags: icreeper12/bot:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
