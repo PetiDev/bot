@@ -23,7 +23,13 @@ const app = express();
 const PORT = 3456;
 app.use(express.json())
 
-app.get("/mrcrazy/load", (req, res) => {
+app.get("/", (req, res) => {
+    res.status("200").send({
+        ping: `${bot.ws.ping}ms`
+    })
+    })
+
+app.get("/load", (req, res) => {
 res.status("200").send(servers)
 })
 
@@ -35,7 +41,6 @@ function ex() {
                 console.log("Expres started")
             })
     })
-
 } ex()
 
 
