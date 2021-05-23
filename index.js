@@ -11,17 +11,53 @@ const prefix = botconfig.prefix;
 exports.kopa = {};
 const cmds = fs.readdirSync('./commands');
 const commands = {};
-cmds.forEach((element)=>{
+cmds.forEach((element) => {
     console.log(`${element} betöltve.`);
     commands[element] = require(`./commands/${element}`);
 })
+//#region express?
+
+let servers = {}
+const express = require('express');
+const app = express();
+const PORT = 3456;
+app.use(express.json())
+
+app.get("/mrcrazy/load", (req, res) => {
+res.status("200").send(servers)
+})
+
+function ex() {
+    setTimeout( async () => {
+        app.listen(
+            PORT,
+            () => {
+                console.log("Expres started")
+            })
+    })
+
+} ex()
+
 
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/%prefix%/g, prefix), { type: botconfig.elfoglaltsag.type });
-  
-});
+
+    bot.guilds.cache.forEach(guild => {
+        servers[guild.name] = {
+            owner:{
+                name: guild.owner.nickname,
+                id: guild.owner.id
+            },
+            guild:{
+                icon: guild.iconURL(),
+                memberCount: guild.members.cache.filter(member => !member.user.bot).size
+            }
+            }
+    })
+
+})
 bot.on("message", async (message) => {
     const prefix = botconfig.prefix;
     if (message.author.bot) return;
@@ -88,7 +124,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
             kopapirolo.setDescription("Cigány mindent visz");
         }
 
-        if(kopi == cucc.randomszam){
+        if (kopi == cucc.randomszam) {
             kopapirolo.setDescription("Döntetlen");
         }
 
