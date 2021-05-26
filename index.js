@@ -21,20 +21,58 @@ let servers = {}
 const express = require('express');
 const app = express();
 const PORT = 3456;
+const cors = require('cors');
+app.use(cors())
 app.use(express.json())
 
 app.get("/", (req, res) => {
     res.status("200").send({
         ping: `${bot.ws.ping}ms`
     })
+})
+app.get("/pic", (req,res)=>{
+    res.status("302").redirect(bot.user.avatarURL())
+})
+app.get("/load", (req, res) => {
+    res.status("200").send(servers)
+})
+
+app.get("/server", (req,res)=>{
+    const data = req.query;
+    const server = bot.guilds.cache.get(data.id);
+    
+    let dad = {
+        users:[],
+        channels:[],
+        roles:[]
+    }
+    
+    server.members.cache.forEach(element => {
+        
+        dad.users.push({
+            member:element,
+            user: bot.users.cache.get(element.id),
+            
+        });
     })
 
-app.get("/load", (req, res) => {
-res.status("200").send(servers)
+    server.channels.cache.forEach(element => {
+        
+        dad.channels.push(element)
+    
+    })
+    server.roles.cache.forEach(element => {
+        
+        dad.roles.push(element)
+    
+    })
+
+    res.status("200").send(dad);
+
 })
 
 function ex() {
-    setTimeout( async () => {
+    setTimeout(async () => {
         app.listen(
             PORT,
             () => {
@@ -51,15 +89,17 @@ bot.on("ready", async () => {
 
     bot.guilds.cache.forEach(guild => {
         servers[guild.name] = {
-            owner:{
+            name: guild.name,
+            owner: {
                 name: guild.owner.nickname,
                 id: guild.owner.id
             },
-            guild:{
+            guild: {
                 icon: guild.iconURL(),
+                id: guild.id,
                 memberCount: guild.members.cache.filter(member => !member.user.bot).size
             }
-            }
+        }
     })
 
 })
