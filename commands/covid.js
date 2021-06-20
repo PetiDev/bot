@@ -22,15 +22,15 @@ run:async function(bot,message){
                         .addField("*Karantén:*",`\`${data.quarantine}\``,true)
 
                         .addField("*Gyógyultak:*","__\n __")
-                        .addField("*Országosan:*",`\`${data.recovered.countryside}\``,true)
+                        .addField("*Országosan:*",`\`${data.recovered.countryside + data.recovered.capital}\``,true)
                         .addField("*Budapesten:*",`\`${data.recovered.capital}\``,true)
 
                         .addField("*Fertőzöttek:*","__\n __")
-                        .addField("*Országosan*",`\`${data.infected.countryside}\``,true)
+                        .addField("*Országosan*",`\`${data.infected.countryside + data.infected.capital}\``,true)
                         .addField("*Budapesten*",`\`${data.infected.capital}\``,true)
 
                         .addField("*Elhunytak:*","__\n __")
-                        .addField("*Országosan:*",`\`${data.died.countryside}\``,true)
+                        .addField("*Országosan:*",`\`${data.died.countryside + data.died.capita}\``,true)
                         .addField("*Budapesten*",`\`${data.died.capital}\``,true)
                         
                         
