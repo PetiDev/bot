@@ -30,7 +30,7 @@ run:async function(bot,message){
                         .addField("*Budapesten*",`\`${data.infected.capital}\``,true)
 
                         .addField("*Elhunytak:*","__\n __")
-                        .addField("*Országosan:*",`\`${data.died.countryside + data.died.capita}\``,true)
+                        .addField("*Országosan:*",`\`${data.died.countryside + data.died.capital}\``,true)
                         .addField("*Budapesten*",`\`${data.died.capital}\``,true)
                         
                         
