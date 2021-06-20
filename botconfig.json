@@ -28,7 +28,8 @@
         "kick":"kick <@felhasználó> | indok",
         "mute":"mute név indok \n(%prefix%mute @név <indok>)",
         "meme":"Meme innen: (dankmemes, programmerHumor, holdup, cursedcomments)",
-        "info":"%prefix%info [user,bot,server]"
+        "info":"%prefix%info [user,bot,server]",
+        "covid":"Információk a Covid-19-ről"
         
     },
     "alisdef":"Commandok a bot tulajdonosának",
