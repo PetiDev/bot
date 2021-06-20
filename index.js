@@ -20,7 +20,6 @@ cmds.forEach((element) => {
 let servers = {}
 const express = require('express');
 const app = express();
-const PORT = 3456;
 const cors = require('cors');
 app.use(cors())
 app.use(express.json())
@@ -74,7 +73,7 @@ app.get("/server", (req,res)=>{
 function ex() {
     setTimeout(async () => {
         app.listen(
-            PORT,
+            process.env.PORT,
             () => {
                 console.log("Expres started")
             })
