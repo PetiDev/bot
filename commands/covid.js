@@ -29,7 +29,7 @@ run:async function(bot,message){
                         .addField("*Országosan*",`\`${data.infected.countryside}\``,true)
                         .addField("*Budapesten*",`\`${data.infected.capital}\``,true)
 
-                        .addField("*Halottak:*","__\n __")
+                        .addField("*Elhunytak:*","__\n __")
                         .addField("*Országosan:*",`\`${data.died.countryside}\``,true)
                         .addField("*Budapesten*",`\`${data.died.capital}\``,true)
                         
