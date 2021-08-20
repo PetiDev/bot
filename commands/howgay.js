@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -19,13 +19,13 @@ module.exports = {
         } else {
             num = Math.floor(Math.random() * 100);
         }
-        const gay = new Discord.MessageEmbed()
+        const gay = new MessageEmbed()
             .setTitle("Howgay")
             .addField(user + " ", `${num}% gay`)
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor(`${botconfig.color}`);
         if (num >= 50) gay.setColor("#ff9ff3");
-        message.channel.send(gay);
+        message.channel.send({embeds:[gay]});
     }
 }

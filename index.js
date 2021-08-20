@@ -1,7 +1,7 @@
 const { default: axios } = require('axios');
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const { Client, Intents, MessageEmbed } = require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const { RedditSimple } = require("reddit-simple"); //reddit meme
@@ -15,7 +15,7 @@ cmds.forEach((element) => {
     console.log(`${element} betöltve.`);
     commands[element] = require(`./commands/${element}`);
 })
-//#region express?
+//#region express
 
 let servers = {}
 const express = require('express');
@@ -80,29 +80,32 @@ function ex() {
     })
 } ex()
 
-
+//#endregion
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} > Elindultam`);
     bot.user.setActivity(botconfig.elfoglaltsag.elfoglaltsag.replace(/%prefix%/g, prefix), { type: botconfig.elfoglaltsag.type });
 
-    bot.guilds.cache.forEach(guild => {
-        servers[guild.name] = {
-            name: guild.name,
-            owner: {
-                name: guild.owner.nickname,
-                id: guild.owner.id
-            },
-            guild: {
-                icon: guild.iconURL(),
-                id: guild.id,
-                memberCount: guild.members.cache.filter(member => !member.user.bot).size
-            }
-        }
-    })
+    //bot.guilds.cache.forEach(guild => {
+    //    console.log(guild.members);
+    //    servers[guild.name] = {
+    //        name: guild.ownerID,
+    //        owner: {
+    //            name: guild.owner.nickname,
+    //            id: guild.owner.id
+    //        },
+    //        guild: {
+    //            icon: guild.iconURL(),
+    //            id: guild.id,
+    //            memberCount: guild.members.cache.filter(member => !member.user.bot).size
+    //        }
+    //    }
+    //
+    //})
 
 })
-bot.on("message", async (message) => {
+bot.on("messageCreate", async (message) => {
+    
     const prefix = botconfig.prefix;
     if (message.author.bot) return;
     if (message.channel.type == "dm" && message.content.startsWith(prefix)) { message.author.send("Nem futtathatsz parancsot dm-ben"); return; }
@@ -113,7 +116,7 @@ bot.on("message", async (message) => {
     try {
         const cmd = commands[`${command}.js`]
 
-
+        
         if (!cmd) return;
 
         cmd.run(bot, message, args);

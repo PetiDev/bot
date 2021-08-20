@@ -1,7 +1,6 @@
-const Discord = require('discord.js');
-const fetch = require("axios");
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -15,7 +14,7 @@ run:async function(bot,message){
 
     console.log(data);
 
-    const covid = new Discord.MessageEmbed()
+    const covid = new MessageEmbed()
                         .setTitle("Covid Infó")
                         .setURL("https://koronavirus.gov.hu/")
                         .addField("*Oltottak:*",`\`${data.vaccinated}\``,true)
@@ -34,7 +33,7 @@ run:async function(bot,message){
                         .addField("*Budapesten*",`\`${data.died.capital}\``,true)
                         
                         
-    message.channel.send(covid);
+    message.channel.send({embeds:[covid]});
 
 
 }}

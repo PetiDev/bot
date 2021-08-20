@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -26,12 +26,12 @@ run: function(bot,message,args){
     member.roles.add(role);
     args[0]='';
     let reason = args.join(' ');
-    const ping = new Discord.MessageEmbed()
-        .setTitle("Pong <a:pinghammer:809461559117348904>")
+    const mute = new MessageEmbed()
+        .setTitle("Mute")
         .setDescription(`${member} le lett némítva`)
         .addField(`Indok:`,`${reason}`)
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         .setColor(`${botconfig.color}`);
-    message.channel.send(ping);
+    message.channel.send({embeds:[mute]});
 }}

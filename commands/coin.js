@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents, MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -12,7 +12,7 @@ run: function(bot,message,args){
     let tip = args[0];
     if(!(tip.includes('fej')||tip.includes('írás')))return;
     const num = Math.round(Math.random()*1);
-    const coinFlipp = new Discord.MessageEmbed()
+    const coinFlipp = new MessageEmbed()
         .setTitle('Coinflipp')
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
@@ -29,5 +29,5 @@ run: function(bot,message,args){
         }else{
             coinFlipp.addField("Eredmény:","Nyertél")
         }
-        message.channel.send(coinFlipp)
+        message.channel.send({embeds:[coinFlipp]})
 }}

@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -26,10 +26,10 @@ run: function(bot,message){
     for(count=num;count>=0;count--){
         ppLength += '=';
     }
-    const penis = new Discord.MessageEmbed()
+    const penis = new MessageEmbed()
         .addField(person + " pénisze\n", `8${ppLength}D`)
         .setTimestamp(Date.now())
         .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
         .setColor(`${botconfig.color}`);
-    message.channel.send(penis);
+    message.channel.send({embeds:[penis]});
 }}

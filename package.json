@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.2.0-dev.1629461019.d6e6244",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
     "reddit-simple": "^2.1.1"

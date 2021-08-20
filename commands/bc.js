@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -14,7 +14,7 @@ module.exports = {
         let Message = args.join(' ').replace(/<#(\d)+>/, '');
         let channelName = message.mentions.channels.first().name;
         const channel = message.guild.channels.cache.find(channelList => channelList.name === channelName);
-        const bc = new Discord.MessageEmbed()
+        const bc = new MessageEmbed()
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor(`${botconfig.color}`);
@@ -23,7 +23,7 @@ module.exports = {
         } else {
             bc.setDescription(Message)
         }
-        channel.send(bc);
+        channel.send({embeds: [bc]});
 
     }
 }

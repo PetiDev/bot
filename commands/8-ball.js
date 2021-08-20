@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents, MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -9,7 +9,7 @@ module.exports = {
     name: "8-ball",
     run: function (bot, message, args) {
 
-        const ball = new Discord.MessageEmbed()
+        const ball = new MessageEmbed()
             .setTitle("8-ball")
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
@@ -23,6 +23,6 @@ module.exports = {
         let rand = args[d];
 
         ball.addField("Eredmény: ", `${rand}`)
-        message.channel.send(ball);
+        message.channel.send({ embeds: [ball]});
     }
 }

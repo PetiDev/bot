@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
-const bot = new Discord.Client({
-    disableEvryone: true,
+const {Client,Intents,MessageEmbed}= require('discord.js');
+const bot = new Client({
+    intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
 });
 const botconfig = require('../botconfig.json');
@@ -151,7 +151,7 @@ module.exports = {
 
         function logger() {
             
-            const szog = new Discord.MessageEmbed()
+            const szog = new MessageEmbed()
             .setTimestamp(Date.now())
             .setFooter(`Lefuttatta: ${message.author.username}#${message.author.discriminator}`)
             .setColor(`${botconfig.color}`);
@@ -167,7 +167,7 @@ module.exports = {
             }
             if (check2 != 360) {
                 szog.setDescription("nincs megoldás");
-                message.channel.send(szog);
+                message.channel.send({embeds:[szog]});
                 return;
             }
 
