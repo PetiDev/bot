@@ -20,7 +20,7 @@
         "haromszog":"(ha valamit nem szeretnél megadni írj oda nullát)\n haromszog <alfa> <béta> <delta> <alfa.> <béta.> <delta.>",
         "penis":" Penis <@ember / ha nem adsz meg semmit akkor a küldőre vonatkozik>",
         "love":"Megmutatja mennyire illik össze két ember \n(%prefix%love <1.ember> <2.ember>)",
-        "kő_papír_olló":"Csak ird be és reagálj",
+        "kps":"[Kő Papír Olló] Csak ird be és reagálj",
         "idő":" Kiírja az időt",
         "szavazás":"szavazás \n(%prefix%szavazás <szöveg>)",
         "coin":"Dobj fel egy érmét és fogadj rá \n(%prefix%coin <fej/írás>)",

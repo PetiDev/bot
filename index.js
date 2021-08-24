@@ -1,5 +1,5 @@
 const { default: axios } = require('axios');
-const { Client, Intents, MessageEmbed } = require('discord.js');
+const { Client, Intents, MessageEmbed,MessageActionRow, MessageButton  } = require('discord.js');
 const bot = new Client({
     intents:[Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] ,
     partials: ['MESSAGE', 'REACTION', 'GUILD_MEMBER', 'USER']
@@ -124,74 +124,15 @@ bot.on("messageCreate", async (message) => {
 
 });
 
-bot.on('messageReactionAdd', (reaction, user) => {
-    if (this.kopa[reaction.message.id]) {
-        const cucc = this.kopa[reaction.message.id];
-        if (user.id != cucc.author) return;
-        const kopapirolo = new Discord.MessageEmbed()
-            .setTitle("Kő Papír Olló")
-            .setTimestamp(Date.now())
-            .setColor("RANDOM")
-        let kopi;
-        switch (reaction.emoji.name) {
-            case '👊':
-                kopi = 0
-                break;
-            case '📜':
-                kopi = 1;
-                break;
-            case '✂':
-                kopi = 2;
-                break;
-            case '🧍‍♂️':
-                kopi = 3;
-                break;
-        }
-        if (kopi == 0 && cucc.randomszam == 1) {
-            kopapirolo.setDescription("Veszítettél");
-        }
-        if (kopi == 0 && cucc.randomszam == 2) {
-            kopapirolo.setDescription("🎉Nyertél🎉");
-        }
+bot.on('interactionCreate', (interaction) => {
 
-        if (kopi == 1 && cucc.randomszam == 2) {
-            kopapirolo.setDescription("Veszítettél");
-        }
-        if (kopi == 1 && cucc.randomszam == 0) {
-            kopapirolo.setDescription("🎉Nyertél🎉");
-        }
+	if (!interaction.isButton()) return;
 
-        if (kopi == 2 && cucc.randomszam == 0) {
-            kopapirolo.setDescription("Veszítettél");
-        }
-        if (kopi == 2 && cucc.randomszam == 1) {
-            kopapirolo.setDescription("🎉Nyertél🎉");
-        }
-        if (kopi == 3) {
-            kopapirolo.setDescription("Cigány mindent visz");
-        }
-
-        if (kopi == cucc.randomszam) {
-            kopapirolo.setDescription("Döntetlen");
-        }
-
-        switch (cucc.randomszam) {
-            case 0:
-                kopapirolo.addField("Eredmény:", '👊');
-                break;
-            case 1:
-                kopapirolo.addField("Eredmény:", '📜');
-                break;
-            case 2:
-                kopapirolo.addField("Eredmény:", '✂');
-                break;
-        }
-
-
-        kopapirolo.addField("Tipped:", `${reaction.emoji.name}`);
-        reaction.message.edit(kopapirolo);
-        this.kopa[reaction.message.id] = undefined;
-    }
+   const cmd = commands[`${interaction.customId.split("_")[0]}.js`]
+   console.log(cmd.button);
+   if(!cmd)return;
+    
+   cmd.button(interaction)
 
 })
 bot.login(process.env.TOKEN);
