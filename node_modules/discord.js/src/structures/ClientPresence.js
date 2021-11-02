@@ -9,10 +9,6 @@ const { ActivityTypes, Opcodes } = require('../util/Constants');
  * @extends {Presence}
  */
 class ClientPresence extends Presence {
-  /**
-   * @param {Client} client The instantiating client
-   * @param {APIPresence} [data={}] The data for the client presence
-   */
   constructor(client, data = {}) {
     super(client, Object.assign(data, { status: data.status ?? 'online', user: { id: null } }));
   }
@@ -53,7 +49,7 @@ class ClientPresence extends Presence {
     if (activities?.length) {
       for (const [i, activity] of activities.entries()) {
         if (typeof activity.name !== 'string') throw new TypeError('INVALID_TYPE', `activities[${i}].name`, 'string');
-        if (!activity.type) activity.type = 0;
+        activity.type ??= 0;
 
         data.activities.push({
           type: typeof activity.type === 'number' ? activity.type : ActivityTypes[activity.type],
@@ -76,3 +72,9 @@ class ClientPresence extends Presence {
 }
 
 module.exports = ClientPresence;
+
+/* eslint-disable max-len */
+/**
+ * @external APIPresence
+ * @see {@link https://discord.com/developers/docs/rich-presence/how-to#updating-presence-update-presence-payload-fields}
+ */

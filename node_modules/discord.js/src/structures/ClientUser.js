@@ -25,11 +25,11 @@ class ClientUser extends User {
        * @type {?boolean}
        */
       this.mfaEnabled = typeof data.mfa_enabled === 'boolean' ? data.mfa_enabled : null;
-    } else if (typeof this.mfaEnabled === 'undefined') {
-      this.mfaEnabled = null;
+    } else {
+      this.mfaEnabled ??= null;
     }
 
-    if (data.token) this.client.token = data.token;
+    if ('token' in data) this.client.token = data.token;
   }
 
   /**
@@ -43,16 +43,18 @@ class ClientUser extends User {
 
   /**
    * Data used to edit the logged in client
-   * @typdef {Object} ClientUserEditData
+   * @typedef {Object} ClientUserEditData
    * @property {string} [username] The new username
-   * @property {BufferResolvable|Base64Resolvable} [avatar] The new avatar
+   * @property {?(BufferResolvable|Base64Resolvable)} [avatar] The new avatar
    */
 
   /**
    * Edits the logged in client.
    * @param {ClientUserEditData} data The new data
+   * @returns {Promise<ClientUser>}
    */
   async edit(data) {
+    if (typeof data.avatar !== 'undefined') data.avatar = await DataResolver.resolveImage(data.avatar);
     const newData = await this.client.api.users('@me').patch({ data });
     this.client.token = newData.token;
     const { updated } = this.client.actions.UserUpdate.handle(newData);
@@ -77,7 +79,7 @@ class ClientUser extends User {
 
   /**
    * Sets the avatar of the logged in client.
-   * @param {BufferResolvable|Base64Resolvable} avatar The new avatar
+   * @param {?(BufferResolvable|Base64Resolvable)} avatar The new avatar
    * @returns {Promise<ClientUser>}
    * @example
    * // Set avatar
@@ -85,8 +87,8 @@ class ClientUser extends User {
    *   .then(user => console.log(`New avatar set!`))
    *   .catch(console.error);
    */
-  async setAvatar(avatar) {
-    return this.edit({ avatar: await DataResolver.resolveImage(avatar) });
+  setAvatar(avatar) {
+    return this.edit({ avatar });
   }
 
   /**
@@ -167,11 +169,11 @@ class ClientUser extends User {
 
   /**
    * Sets/removes the AFK flag for the client user.
-   * @param {boolean} afk Whether or not the user is AFK
+   * @param {boolean} [afk=true] Whether or not the user is AFK
    * @param {number|number[]} [shardId] Shard Id(s) to have the AFK flag set on
    * @returns {ClientPresence}
    */
-  setAFK(afk, shardId) {
+  setAFK(afk = true, shardId) {
     return this.setPresence({ afk, shardId });
   }
 }
